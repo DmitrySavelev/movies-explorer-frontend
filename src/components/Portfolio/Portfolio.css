@@ -1,0 +1,28 @@
+.portfolio {
+  padding: 110px 70px 110px;
+  background-color: #ffffff;
+}
+
+.portfolio__title {
+  color: #a0a0a0;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.portfolio__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.portfolio__row_text {
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+}
+
+.portfolio__row_arrow {
+  background-image: url(../../../public/arrow.png);
+  width: 29px;
+  height: 60px;
+  background-repeat: no-repeat;
+}

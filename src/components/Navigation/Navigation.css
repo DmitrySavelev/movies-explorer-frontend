@@ -1,0 +1,28 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  padding-left: 60px;
+  padding-right: 60px;
+  background-color: #073042;
+}
+
+.navigation__sigh-up {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 30px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.navigation__sigh-in {
+  color: #000;
+  background-color: #2be080;
+  font-size: 12px;
+  border: none;
+  border-radius: 3px;
+  height: 32px;
+  width: 84px;
+  font-weight: 500;
+}

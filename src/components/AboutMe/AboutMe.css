@@ -1,0 +1,53 @@
+.aboutMe {
+  padding: 110px 70px 110px;
+  background-color: #fff;
+}
+
+.aboutMe__caption {
+  letter-spacing: -0.04em;
+  font-size: 22px;
+}
+
+.aboutMe__info {
+  display: flex;
+  margin: 70px auto 70px;
+}
+
+.aboutMe__info_text {
+  width: 570px;
+  margin-right: 300px;
+}
+
+.aboutMe__info_title {
+  font-size: 50px;
+  line-height: 58px;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.aboutMe__info_speciality {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.aboutMe__info_par {
+  margin-bottom: 80px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.aboutMe__info_link {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.aboutMe__photo {
+  background-image: url(../../../public/photo.jpg);
+  width: 270px;
+  height: 327px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+}

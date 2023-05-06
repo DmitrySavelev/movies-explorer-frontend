@@ -1,0 +1,21 @@
+.promo {
+  color: #ffffff;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 524px;
+  background-color: #073042;
+}
+
+.promo__title {
+  width: 730px;
+  text-align: center;
+  position: absolute;
+  letter-spacing: -0.04em;
+}
+
+.promo__img {
+  width: 320px;
+  height: 320px;
+}

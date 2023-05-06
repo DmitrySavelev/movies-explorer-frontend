@@ -1,0 +1,25 @@
+import "./Portfolio.css";
+
+function Portfolio() {
+  return (
+    <div className="portfolio">
+      <h5 className="portfolio__title">Портфолио</h5>
+      <div className="portfolio__row">
+        <span className="portfolio__row_text">Статичный сайт</span>
+        <div className="portfolio__row_arrow"></div>
+      </div>
+      <hr />
+      <div className="portfolio__row">
+        <span className="portfolio__row_text">Адаптивный сайт</span>
+        <div className="portfolio__row_arrow"></div>
+      </div>
+      <hr />
+      <div className="portfolio__row">
+        <span className="portfolio__row_text">Одностраничное приложение</span>
+        <div className="portfolio__row_arrow"></div>
+      </div>
+    </div>
+  );
+}
+
+export default Portfolio;
