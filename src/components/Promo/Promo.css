@@ -1,10 +1,10 @@
 .promo {
+  padding: 80px 70px 120px;
   color: #ffffff;
   font-size: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 524px;
   background-color: #073042;
 }
 

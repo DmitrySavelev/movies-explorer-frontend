@@ -1,10 +1,10 @@
 import "./AboutProject.css";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 function AboutProject() {
   return (
-    <div className="aboutProject">
-      <h2 className="aboutProject__title">О проекте</h2>
-      <hr />
+    <div className="aboutProject" id="aboutProject">
+      <SectionTitle title="О проекте" />
       <div className="aboutProject__wrapper-text">
         <div>
           <span className="aboutProject__wrapper-text_span">

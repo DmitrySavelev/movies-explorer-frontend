@@ -1,0 +1,72 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-left: 16px;
+}
+
+.register__wrapper {
+  width: 396px;
+  padding: 40px 0 50px;
+}
+
+.register__logo {
+  background-image: url(../../../public/logo-smile.svg);
+  width: 38px;
+  height: 38px;
+}
+
+.register__header {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 40px 0 42px;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register__span {
+  font-size: 10px;
+  color: #a0a0a0;
+}
+
+.register__input {
+  height: 46px;
+  border-radius: 8px;
+  font-size: 13px;
+  border: none;
+  background-color: #f9f9f9;
+  margin: 9px 0 20px;
+  padding-left: 15px;
+}
+
+.register__input:focus {
+  outline: none;
+}
+
+.register__button {
+  background-color: #3456f3;
+  height: 45px;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  margin: 69px 0 17px;
+  font-size: 14px;
+}
+
+.register__subtitle {
+  font-size: 14px;
+  color: #a0a0a0;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.register__link {
+  color: #3456f3;
+  text-decoration: none;
+  font-size: 14px;
+}

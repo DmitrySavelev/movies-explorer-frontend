@@ -1,5 +1,5 @@
 .portfolio {
-  padding: 110px 70px 110px;
+  padding: 25px 50px 75px 70px;
   background-color: #ffffff;
 }
 
@@ -7,11 +7,25 @@
   color: #a0a0a0;
   font-size: 18px;
   line-height: 20px;
+  margin-bottom: 50px;
 }
 
 .portfolio__row {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.portfolio__row:hover {
+  background-color: #e8e8e8;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+.portfolio__row_bottom-border {
+  border-bottom: 1px solid #000;
 }
 
 .portfolio__row_text {
@@ -23,6 +37,7 @@
 .portfolio__row_arrow {
   background-image: url(../../../public/arrow.png);
   width: 29px;
-  height: 60px;
+  height: 18px;
   background-repeat: no-repeat;
+  /* margin-top: 15px; */
 }

@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  padding-left: 70px;
+  padding-right: 55px;
+}
+
+.header__buttons {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+.header__button {
+  color: #000;
+  text-decoration: none;
+}
+.header__button:hover {
+  outline: 2px solid #2BE080;
+  border-radius: 5px;
+}
+
+.header__button_film {
+  font-weight: 500;
+}
+
+.header__button_saved-film {
+  font-weight: 400;
+}
+
+.header__button_profile {
+  cursor: pointer;
+}

@@ -8,6 +8,10 @@
   background-color: #073042;
 }
 
+.navigation__buttons {
+  margin-right: -7px;
+}
+
 .navigation__sigh-up {
   color: #fff;
   text-decoration: none;
@@ -23,6 +27,7 @@
   border: none;
   border-radius: 3px;
   height: 32px;
-  width: 84px;
+  width: 76px;
   font-weight: 500;
+  cursor: pointer;
 }

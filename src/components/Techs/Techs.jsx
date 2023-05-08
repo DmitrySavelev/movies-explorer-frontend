@@ -1,10 +1,10 @@
 import "./Techs.css";
+import SectionTitle from "../SectionTitle/SectionTitle";
 
 function Techs() {
   return (
-    <div className="techs">
-      <h2 className="techs__caption">Технологии</h2>
-      <hr />
+    <div className="techs" id="techs">
+      <SectionTitle title='Технологии'/>
       <h1 className="techs__title">7 технологий</h1>
       <p className="techs__par">
         На курсе веб-разработки мы освоили технологии, которые применили <br />{" "}

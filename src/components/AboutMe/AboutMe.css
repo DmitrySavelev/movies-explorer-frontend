@@ -1,5 +1,5 @@
 .aboutMe {
-  padding: 110px 70px 110px;
+  padding: 110px 70px 0px;
   background-color: #fff;
 }
 
@@ -23,17 +23,21 @@
   line-height: 58px;
   margin: 0;
   letter-spacing: -0.04em;
+  font-weight: 500;
 }
 
 .aboutMe__info_speciality {
+  margin-top: 15px;
+  margin-bottom: 25px;
   font-size: 18px;
   font-weight: 500;
 }
 
 .aboutMe__info_par {
-  margin-bottom: 80px;
+  margin-bottom: 97px;
   font-size: 14px;
   line-height: 22px;
+
 }
 
 .aboutMe__info_link {

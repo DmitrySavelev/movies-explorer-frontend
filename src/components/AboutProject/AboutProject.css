@@ -2,11 +2,6 @@
   padding: 110px 70px 110px;
 }
 
-.aboutProject__title {
-  letter-spacing: -0.04em;
-  font-size: 22px;
-}
-
 .aboutProject__wrapper-text {
   display: flex;
   margin-top: 70px;
@@ -23,6 +18,8 @@
 .aboutProject__wrapper-text_par {
   font-size: 14px;
   line-height: 20px;
+  margin-top: 26px;
+  margin-bottom: 41px;
 }
 
 .aboutProject__schema {
