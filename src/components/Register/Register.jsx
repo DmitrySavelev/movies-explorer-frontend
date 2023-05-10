@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Register.css";
 // import { Link } from "react-router-dom";
 
@@ -31,12 +32,9 @@ function Register() {
           </button>
           <span className="register__subtitle">
             <span>Уже зарегистрированы?</span>
-            <a
-              className="register__link"
-              href="https://yandex.ru/search/?lr=21341"
-            >
+            <Link to="/signin" className="register__link">
               Войти
-            </a>
+            </Link>
           </span>
         </form>
       </div>

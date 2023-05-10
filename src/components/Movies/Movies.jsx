@@ -1,17 +1,19 @@
+import "./Movies.css";
+
 import Header from "../Header/Header";
-import SearchForm from "../SearchForm/SearchForm";
+// import SearchForm from "../SearchForm/SearchForm";
 // import Preloader from "../Preloader/Preloader";
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import Footer from "../Footer/Footer";
+// import MoviesCardList from "../MoviesCardList/MoviesCardList";
+// import Footer from "../Footer/Footer";
 
 function Movies() {
   return (
     <div className="movies">
       <Header />
-      <SearchForm />
+      {/* <SearchForm /> */}
       {/* <Preloader /> */}
-      <MoviesCardList />
-      <Footer />
+      {/* <MoviesCardList /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

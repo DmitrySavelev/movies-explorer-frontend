@@ -9,7 +9,6 @@ li {
 .movie__card_image {
   width: 270px;
   height: 151px;
-  /* background-image: url(../../../public/pic-car.png); */
 }
 
 .movie__card_info {
@@ -20,8 +19,8 @@ li {
   border-color: #e8e8e8;
   font-size: 13px;
   font-weight: 500;
-  padding-top: 14px;
-  padding-bottom: 30px;
+  padding-top: 8px;
+  padding-bottom: 25px;
 }
 
 .movie__card_like {

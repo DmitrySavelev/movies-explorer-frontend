@@ -1,5 +1,5 @@
 import "./Login.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -25,12 +25,9 @@ function Login() {
           </button>
           <span className="login__subtitle">
             <span>Ещё не зарегистрированы?</span>
-            <a
-              className="login__link"
-              href="https://yandex.ru/search/?lr=21341"
-            >
+            <Link to="/signup" className="login__link">
               Регистрация
-            </a>
+            </Link>
           </span>
         </form>
       </div>

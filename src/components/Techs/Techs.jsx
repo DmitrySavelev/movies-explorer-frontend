@@ -7,7 +7,7 @@ function Techs() {
       <SectionTitle title='Технологии'/>
       <h1 className="techs__title">7 технологий</h1>
       <p className="techs__par">
-        На курсе веб-разработки мы освоили технологии, которые применили <br />{" "}
+        На курсе веб-разработки мы освоили технологии, которые применили 
         в дипломном проекте.
       </p>
       <div className="techs__blocks">

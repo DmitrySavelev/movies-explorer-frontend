@@ -1,3 +1,5 @@
+import "./Main.css";
+
 import Navigation from "../Navigation/Navigation";
 import Promo from "../Promo/Promo";
 import NavTab from "../NavTab/NavTab";
@@ -9,7 +11,7 @@ import Footer from "../Footer/Footer";
 
 function Main() {
   return (
-    <>
+    <div className="main">
       <Navigation />
       <Promo />
       <NavTab />
@@ -18,7 +20,7 @@ function Main() {
       <AboutMe />
       <Portfolio />
       <Footer />
-    </>
+    </div>
   );
 }
 

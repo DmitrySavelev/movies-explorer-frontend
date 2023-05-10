@@ -12,15 +12,17 @@ function AboutMe() {
             Фронтенд-разработчик, 30 лет
           </h2>
           <p className="aboutMe__info_par">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime
-            sint amet optio harum cupiditate nostrum quis sequi laborum, fugiat
-            necessitatibus explicabo consequuntur molestiae pariatur ipsa,
-            doloremque sed assumenda ab reiciendis eos incidunt! Maiores quidem
-            dolore, non a nisi laudantium quaerat eaque
+            Я родился и живу в Саратове, закончил факультет экономики СГУ. У
+            меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь
+            бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ
+            Контур». После того, как прошёл курс по веб-разработке, начал
+            заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
           <a
             className="aboutMe__info_link"
             href="https://github.com/DmitrySavelev/movies-explorer-frontend"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Github
           </a>

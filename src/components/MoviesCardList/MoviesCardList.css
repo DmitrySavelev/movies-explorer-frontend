@@ -25,9 +25,14 @@
   margin: 0 auto;
 }
 
-/* @media (max-width: 1279px) {
-  .elements__card {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 1fr);
+@media (max-width: 1279px) {
+  .moviesCardList {
+    padding: 130px 0px 0px 0px;
   }
-} */
+}
+
+@media (max-width: 767px) {
+  .moviesCardList {
+    padding: 41px 14px 181px;
+  }
+}

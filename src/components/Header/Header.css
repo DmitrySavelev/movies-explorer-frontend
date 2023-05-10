@@ -7,6 +7,12 @@
   padding-right: 55px;
 }
 
+.header__logo {
+  background-image: url(../../../public/logo-movies.png);
+  width: 38px;
+  height: 38px;
+}
+
 .header__buttons {
   font-size: 14px;
   display: flex;
@@ -19,8 +25,9 @@
   color: #000;
   text-decoration: none;
 }
+
 .header__button:hover {
-  outline: 2px solid #2BE080;
+  outline: 2px solid #2be080;
   border-radius: 5px;
 }
 
@@ -34,4 +41,23 @@
 
 .header__button_profile {
   cursor: pointer;
+}
+
+@media (max-width: 1279px) {
+  .header {
+    padding-left: 30px;
+    padding-right: 35px;
+  }
+
+  .header__logo {
+    background-image: url(../../../public/movies-logo768.svg);
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 41px 14px 181px;
+  }
 }
