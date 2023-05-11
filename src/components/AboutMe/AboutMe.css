@@ -44,7 +44,7 @@
 }
 
 .aboutMe__photo {
-  background-image: url(../../../public/photo.jpg);
+  background-image: url(../../../public/images/photo.jpg);
   width: 270px;
   height: 327px;
   background-position: center;

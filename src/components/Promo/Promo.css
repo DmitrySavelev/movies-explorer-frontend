@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   background-color: #073042;
+  position: relative;
 }
 
 .promo__title {

@@ -12,7 +12,7 @@
 }
 
 .register__logo {
-  background-image: url(../../../public/logo-smile.svg);
+  background-image: url(../../../public/images/logo-smile.svg);
   width: 38px;
   height: 38px;
 }
@@ -45,6 +45,7 @@
 
 .register__input:focus {
   outline: none;
+  border: none;
 }
 
 .register__button {
@@ -55,6 +56,7 @@
   border: none;
   margin: 69px 0 17px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .register__subtitle {
@@ -96,7 +98,7 @@
   }
 
   .register__button {
-    margin: 245px 0px 15px 0px;
+    margin: 157px 0px 15px 0px;
     font-size: 12px;
     font-weight: 500;
   }

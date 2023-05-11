@@ -1,10 +1,10 @@
 import "./Profile.css";
 import Header from "../Header/Header";
 
-function Profile() {
+function Profile({ handleClick }) {
   return (
-    <>
-      <Header />
+    <div className="big-wrapper">
+      <Header handleClick={handleClick} />
       <div className="profile">
         <div className="profile__wrapper">
           <h1 className="profile__header">Привет, Дмитрий!</h1>
@@ -30,7 +30,7 @@ function Profile() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,25 +1,24 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 
-function Header() {
+function Header({ handleClick }) {
   return (
     <div className="header">
-      <div className="header__logo"></div>
+      <Link to="/" className="header__logo"></Link>
+      <div className="burger" onClick={handleClick}></div>
       <div className="header__buttons">
-        <a
-          className="header__button header__button_film"
-          href="https://yandex.ru/search/?lr=21341"
-        >
+        <Link to="/movies" className="header__button header__button_film">
           Фильмы
-        </a>
-        <a
+        </Link>
+        <Link
+          to="/saved-movies"
           className="header__button header__button_saved-film"
-          href="https://yandex.ru/search/?lr=21341"
         >
           Сохранённые фильмы
-        </a>
-        <div className="header__button header__button_profile">
-          <img src="profile.png" alt="Аккаунт" />
-        </div>
+        </Link>
+        <Link to="/profile" className="header__button header__button_profile">
+          <img src="images/profile.png" alt="Аккаунт" />
+        </Link>
       </div>
     </div>
   );

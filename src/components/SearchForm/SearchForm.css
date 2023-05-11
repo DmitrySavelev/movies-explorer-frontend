@@ -13,7 +13,7 @@
 
 .form__field {
   border: 1px solid #e8e8e8;
-  border-radius: 20px 0 0 20px;
+  border-radius: 24px 0 0 24px;
   width: 845px;
   height: 48px;
   padding-left: 20px;
@@ -31,17 +31,22 @@
   height: 48px;
   display: flex;
   align-items: center;
-  border-radius: 0 20px 20px 0;
+  border-radius: 0 24px 24px 0;
   border-left: none;
   cursor: pointer;
 }
 
 .form__button_img {
-  background-image: url(../../../public/find.png);
+  background-image: url(../../../public/images/find.svg);
   width: 80px;
   height: 34px;
   background-repeat: no-repeat;
   margin-right: 5px;
+  transition: transform .3s ease;
+}
+
+.form__button_img:hover {
+  transform: scale(1.2, 1.35)
 }
 
 .switch {
@@ -52,35 +57,92 @@
   display: flex;
   gap: 13px;
   align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.shortFilms:hover {
+  opacity: 0.6;
 }
 
 .new-switch {
-  background-image: url(../../../public/smalltumb.svg);
+  background-image: url(../../../public/images/smalltumb.svg);
   width: 36px;
   height: 20px;
+  cursor: pointer;
 }
 
 input[type="checkbox"]:checked ~ .new-switch {
-  background-image: url(../../../public/smalltumboff.svg);
+  background-image: url(../../../public/images/smalltumboff.svg);
 }
 
 .shortFilms__span {
   font-size: 13px;
+  cursor: pointer;
+}
+
+input {
+  transition: box-shadow 0.3s ease;
 }
 
 input:focus {
   outline: none;
-  border: 2px solid #000;
+  border: 1px solid #2be080;
   border-right: none;
+  box-shadow: 5px 5px 50px;
 }
 
 input:focus + div {
-  border: 2px solid #000;
+  border: 1px solid #2be080;
   border-left: none;
 }
 
 .horizon-line {
   margin: 0 55px 0px 70px;
-  border-color: #E8E8E8;
+  border-color: #e8e8e8;
   margin-bottom: 10px;
+}
+
+@media (max-width: 1279px) {
+  .searchForm {
+    flex-direction: column;
+    padding-left: 50px;
+    padding-top: 58px;
+    gap: 38px;
+  }
+
+  .form {
+    padding-left: 0px;
+  }
+
+  .form__field {
+    width: 620px;
+  }
+
+  .horizon-line {
+    margin: 17px 30px 0px 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .form__field {
+    width: 215px;
+    padding-left: 15px;
+  }
+
+  .form__field::placeholder {
+    font-size: 11px;
+  }
+  .form {
+    padding-left: 5px;
+  }
+  .shortFilms__span {
+    font-size: 11px;
+  }
+  .shortFilms {
+    padding-top: 8px;
+    padding-left: 5px;
+  }
+  .horizon-line {
+    margin: 13px 15px 0px 15px;
+  }
 }

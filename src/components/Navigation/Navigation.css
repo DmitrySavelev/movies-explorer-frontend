@@ -14,9 +14,13 @@
 }
 
 .navigation__logo {
-  background-image: url(../../../public/logo.svg);
+  background-image: url(../../../public/images/logo.svg);
   width: 38px;
   height: 38px;
+  transition: opacity 0.3s ease;
+}
+.navigation__logo:hover {
+  opacity: 0.5;
 }
 
 .navigation__buttons {
@@ -29,6 +33,10 @@
   margin-right: 30px;
   font-size: 12px;
   font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+.navigation__sigh-up:hover {
+  opacity: 0.5;
 }
 
 .navigation__sigh-in {
@@ -41,6 +49,11 @@
   width: 76px;
   font-weight: 500;
   cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.navigation__sigh-in:hover {
+  opacity: 0.5;
 }
 
 @media (max-width: 1279px) {
@@ -54,7 +67,7 @@
   }
 
   .navigation__logo {
-    background-image: url(../../../public/logo768.svg);
+    background-image: url(../../../public/images/logo768.svg);
   }
 }
 

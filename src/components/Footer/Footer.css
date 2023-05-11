@@ -34,6 +34,11 @@
 .footer__link {
   text-decoration: none;
   color: #000;
+  transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+  opacity: 0.5;
 }
 
 @media (max-width: 1279px) {

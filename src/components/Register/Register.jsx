@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Register.css";
-// import { Link } from "react-router-dom";
 
 function Register() {
   return (
     <div className="register">
       <div className="register__wrapper">
-        <div className="register__logo"></div>
+        <Link to="/">
+          <div className="register__logo"></div>
+        </Link>
         <h1 className="register__header">Добро пожаловать!</h1>
         <form action="" className="register__form">
           <span className="register__span">Имя</span>
