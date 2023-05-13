@@ -3,38 +3,56 @@ li {
 }
 
 .movie__card {
-  width: 270px;
+  width: 364px;
 }
 
 .movie__card_image {
-  width: 270px;
-  height: 151px;
+  width: 364px;
+  height: 203px;
+  display: block;
+}
+
+.movie__card_options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdfdfd;
+  padding-top: 12px;
+  padding-left: 15px;
+  padding-right: 13px;
+  padding-bottom: 14px;
 }
 
 .movie__card_info {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #000;
+  flex-direction: column;
   border-color: #e8e8e8;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  padding-top: 8px;
-  padding-bottom: 25px;
+  gap: 11px;
+}
+
+.movie__card_text {
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .movie__card_like {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   background-image: url(../../../public/images/like.svg);
+}
+
+.movie__card_delete {
+  width: 30px;
+  height: 30px;
+  background-image: url(../../../public/images/delete.svg);
 }
 
 .movie__card_time {
   display: block;
   color: #a0a0a0;
   font-size: 11px;
-  padding-top: 7px;
-  padding-bottom: 18px;
 }
 
 @media (max-width: 1279px) {
@@ -51,6 +69,11 @@ li {
 @media (max-width: 767px) {
   .movie__card {
     width: 300px;
+  }
+
+  .movie__card_options {
+    padding-top: 14px;
+    padding-left: 14px;
   }
 
   .movie__card_image {

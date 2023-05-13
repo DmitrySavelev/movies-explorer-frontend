@@ -1,5 +1,5 @@
 .portfolio {
-  padding: 30px 50px 75px 70px;
+  padding: 31px 70px 86px;
   background-color: #ffffff;
 }
 
@@ -8,6 +8,7 @@
   font-size: 18px;
   line-height: 20px;
   margin-bottom: 50px;
+  font-weight: 400;
 }
 
 .portfolio__list {
@@ -17,10 +18,10 @@
 .portfolio__row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   align-items: center;
-  padding-bottom: 10px;
-  transition: background-color .3s ease;
+  padding-bottom: 19px;
+  transition: background-color 0.3s ease;
 }
 
 .portfolio__row:hover {
@@ -63,7 +64,7 @@
   }
 
   .portfolio__row {
-    padding-bottom: 9px;
+    padding-bottom: 19px;
     padding-right: 0px;
   }
 

@@ -1,3 +1,4 @@
+import Logo from "../Logo/Logo";
 import "./Login.css";
 import { Link } from "react-router-dom";
 
@@ -5,8 +6,8 @@ function Login() {
   return (
     <div className="login">
       <div className="login__wrapper">
-        <Link to="/">
-          <div className="login__logo"></div>
+        <Link to="/" className="login__logo">
+          <Logo />
         </Link>
         <h1 className="login__header">Рады видеть!</h1>
         <form action="" className="login__form">

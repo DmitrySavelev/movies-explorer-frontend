@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
+import Logo from "../Logo/Logo";
 
 function Header({ handleClick }) {
   return (
     <div className="header">
-      <Link to="/" className="header__logo"></Link>
-      <div className="burger" onClick={handleClick}></div>
-      <div className="header__buttons">
+      <div className="header__buttons_left">
+        <Link to="/" className="header__logo">
+          <Logo />
+        </Link>
         <Link to="/movies" className="header__button header__button_film">
           Фильмы
         </Link>
@@ -16,10 +18,11 @@ function Header({ handleClick }) {
         >
           Сохранённые фильмы
         </Link>
-        <Link to="/profile" className="header__button header__button_profile">
-          <img src="images/profile.png" alt="Аккаунт" />
-        </Link>
       </div>
+      <Link to="/profile" className="header__button header__button_account">
+        Аккаунт
+      </Link>
+      <div className="burger" onClick={handleClick}></div>
     </div>
   );
 }

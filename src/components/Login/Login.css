@@ -13,15 +13,13 @@
 }
 
 .login__logo {
-  background-image: url(../../../public/images/logo-smile.svg);
-  width: 38px;
-  height: 38px;
+  display: inline-block;
 }
 
 .login__header {
   font-size: 24px;
   font-weight: 500;
-  margin: 40px 0 42px;
+  margin: 37px 0 42px;
 }
 
 .login__form {
@@ -36,14 +34,13 @@
 }
 
 .login__input {
-  height: 46px;
-  border-radius: 8px;
-  font-size: 13px;
+  padding: 0;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+  height: 26px;
+  font-size: 14px;
   border: none;
-  background-color: #f9f9f9;
-  margin: 9px 0 20px;
-  padding-left: 15px;
-  font-weight: 500;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .login__input:focus {
@@ -51,12 +48,12 @@
 }
 
 .login__button {
-  background-color: #3456f3;
+  background-color: #ff6838;
   height: 45px;
   color: #fff;
   border-radius: 3px;
   border: none;
-  margin: 158px 0 15px;
+  margin: 197px 0 15px;
   font-size: 14px;
   width: 100%;
   cursor: pointer;
@@ -71,7 +68,7 @@
 }
 
 .login__link {
-  color: #3456f3;
+  color: #ff6838;
   text-decoration: none;
   font-size: 14px;
 }
@@ -101,7 +98,7 @@
   }
 
   .login__button {
-    margin: 245px 0px 15px 0px;
+    margin: 286px 0px 15px 0px;
     font-size: 12px;
     font-weight: 500;
   }

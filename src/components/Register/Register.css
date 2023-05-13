@@ -12,15 +12,13 @@
 }
 
 .register__logo {
-  background-image: url(../../../public/images/logo-smile.svg);
-  width: 38px;
-  height: 38px;
+  display: inline-block;
 }
 
 .register__header {
   font-size: 24px;
   font-weight: 500;
-  margin: 40px 0 42px;
+  margin: 37px 0 42px;
 }
 
 .register__form {
@@ -34,13 +32,13 @@
 }
 
 .register__input {
-  height: 46px;
-  border-radius: 8px;
-  font-size: 13px;
+  padding: 0;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+  height: 26px;
+  font-size: 14px;
   border: none;
-  background-color: #f9f9f9;
-  margin: 9px 0 20px;
-  padding-left: 15px;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .register__input:focus {
@@ -49,12 +47,12 @@
 }
 
 .register__button {
-  background-color: #3456f3;
+  background-color: #ff6838;
   height: 45px;
   color: #fff;
   border-radius: 3px;
   border: none;
-  margin: 69px 0 17px;
+  margin: 129px 0 17px;
   font-size: 14px;
   cursor: pointer;
 }
@@ -68,7 +66,7 @@
 }
 
 .register__link {
-  color: #3456f3;
+  color: #ff6838;
   text-decoration: none;
   font-size: 14px;
 }
@@ -89,7 +87,7 @@
   }
 
   .register__header {
-    margin-top: 51px;
+    margin-top: 52px;
   }
 
   .register__form {
@@ -98,7 +96,7 @@
   }
 
   .register__button {
-    margin: 157px 0px 15px 0px;
+    margin: 217px 0px 15px 0px;
     font-size: 12px;
     font-weight: 500;
   }

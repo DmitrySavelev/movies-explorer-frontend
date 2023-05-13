@@ -2,7 +2,6 @@ import "./Main.css";
 
 import Navigation from "../Navigation/Navigation";
 import Promo from "../Promo/Promo";
-import NavTab from "../NavTab/NavTab";
 import AboutProject from "../AboutProject/AboutProject";
 import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
@@ -14,7 +13,6 @@ function Main() {
     <div className="main">
       <Navigation />
       <Promo />
-      <NavTab />
       <AboutProject />
       <Techs />
       <AboutMe />

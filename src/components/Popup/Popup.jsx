@@ -11,13 +11,13 @@ const Popup = ({ isOpen, onClose }) => {
         onClick={onClose}
       ></button>
       <div className="popup__wrapper">
-        <Link to="/" className="popup__span">
+        <Link to="/" className="popup__span" onClick={onClose}>
           Главная
         </Link>
-        <Link to="/movies" className="popup__span">
+        <Link to="/movies" className="popup__span" onClick={onClose}>
           Фильмы
         </Link>
-        <Link to="/saved-movies" className="popup__span">
+        <Link to="/saved-movies" className="popup__span" onClick={onClose}>
           Сохранённые фильмы
         </Link>
       </div>
