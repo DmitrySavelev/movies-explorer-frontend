@@ -3,14 +3,14 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 function AboutMe() {
   return (
-    <div className="aboutMe" id="aboutMe">
+    <section className="aboutMe" id="aboutMe">
       <SectionTitle title="Студент" />
       <div className="aboutMe__info">
         <div className="aboutMe__info_text">
-          <h1 className="aboutMe__info_title">Дмитрий</h1>
-          <h2 className="aboutMe__info_speciality">
+          <p className="aboutMe__info_title">Дмитрий</p>
+          <p className="aboutMe__info_speciality">
             Фронтенд-разработчик, 30 лет
-          </h2>
+          </p>
           <p className="aboutMe__info_par">
             Я родился в городе Коврове. Переехал в Москву, где жил, учился и
             работал в течение последних 8 лет. Последние лет 5 я в виде хобби осваивал
@@ -29,7 +29,7 @@ function AboutMe() {
         </div>
         <div className="aboutMe__photo"></div>
       </div>
-    </div>
+    </section>
   );
 }
 

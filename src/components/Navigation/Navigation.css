@@ -3,12 +3,9 @@
   align-items: center;
   justify-content: space-between;
   height: 74px;
-  padding: 0 70px 20px;
-}
-
-.navigation__wrapper {
+  padding: 37px 54px 58px 70px;
   margin: 0 auto;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 .navigation__logo {
@@ -19,6 +16,11 @@
 }
 .navigation__logo:hover {
   opacity: 0.5;
+}
+
+.navigation__buttons {
+  display: flex;
+  align-items: center;
 }
 
 .navigation__sigh-up {
@@ -34,6 +36,7 @@
 }
 
 .navigation__sigh-in {
+  display: inline-block;
   color: #000;
   background-color: #2be080;
   font-size: 12px;
@@ -44,6 +47,10 @@
   font-weight: 500;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navigation__sigh-in:hover {
@@ -53,9 +60,6 @@
 @media (max-width: 1279px) {
   .navigation {
     padding: 0 30px;
-  }
-
-  .navigation__wrapper {
     width: 768px;
   }
 }
@@ -64,9 +68,6 @@
   .navigation {
     padding-left: 15px;
     padding-right: 14px;
-  }
-
-  .navigation__wrapper {
     width: 320px;
   }
 

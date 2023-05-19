@@ -22,12 +22,6 @@
   opacity: 0.5;
 }
 
-@media (max-width: 1279px) {
-  .navTab {
-    padding: 0 70px 0px;
-  }
-}
-
 @media (max-width: 767px) {
   .navTab {
     gap: 5px;

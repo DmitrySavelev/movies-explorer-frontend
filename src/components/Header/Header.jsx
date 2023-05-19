@@ -4,8 +4,8 @@ import Logo from "../Logo/Logo";
 
 function Header({ handleClick }) {
   return (
-    <div className="header">
-      <div className="header__buttons_left">
+    <header className="header">
+      <div className="header__buttons-left">
         <Link to="/" className="header__logo">
           <Logo />
         </Link>
@@ -22,8 +22,8 @@ function Header({ handleClick }) {
       <Link to="/profile" className="header__button header__button_account">
         Аккаунт
       </Link>
-      <div className="burger" onClick={handleClick}></div>
-    </div>
+      <button className="burger" onClick={handleClick}></button>
+    </header>
   );
 }
 

@@ -1,6 +1,8 @@
 .footer {
   padding: 80px 53px 95px 70px;
   background-color: #fafafa;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .footer__title {
@@ -44,8 +46,9 @@
 
 @media (max-width: 1279px) {
   .footer {
-    padding: 130px 0px 20px 0px;
+    padding: 131px 0px 20px 7px;
     background-color: #fff;
+    width: 768px;
   }
 
   .footer__title {
@@ -65,7 +68,8 @@
 
 @media (max-width: 767px) {
   .footer {
-    padding: 41px 10px 20px;
+    padding: 43px 10px 20px;
+    width: 320px;
   }
 
   .footer__title {
@@ -83,7 +87,6 @@
     margin-top: 31px;
     gap: 29px;
     padding-left: 42px;
-
   }
 
   .footer__links {

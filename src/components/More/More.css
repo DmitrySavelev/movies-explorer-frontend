@@ -1,4 +1,4 @@
-.moviesCardList__more {
+.more {
   width: 320px;
   height: 36px;
   display: flex;
@@ -12,20 +12,19 @@
   border: 1px solid #e8e8e8;
 }
 
-.moviesCardList__more:hover {
+.more:hover {
   outline: 1px solid #2be080;
 }
 
 @media (max-width: 1279px) {
-  .moviesCardList__more {
+  .more {
     width: 320px;
-    /* margin-bottom: 30px; */
     margin: 15px auto 30px;
   }
 }
 
 @media (max-width: 767px) {
-  .moviesCardList__more {
+  .more {
     margin-top: 78px;
     width: 240px;
     margin-bottom: 119px;

@@ -4,7 +4,7 @@ import Logo from "../Logo/Logo";
 
 function Register() {
   return (
-    <div className="register">
+    <section className="register">
       <div className="register__wrapper">
         <Link to="/" className="register__logo">
           <Logo />
@@ -15,18 +15,21 @@ function Register() {
           <input
             className="register__input"
             type="text"
+            required
             placeholder="Введите имя"
           />
           <span className="register__span">E-mail</span>
           <input
             className="register__input"
             type="text"
+            required
             placeholder="Введите почту"
           />
           <span className="register__span">Пароль</span>
           <input
             className="register__input"
             type="password"
+            required
             placeholder="Введите пароль"
           />
           <button type="submit" className="register__button">
@@ -40,54 +43,8 @@ function Register() {
           </span>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 
 export default Register;
-
-// eslint-disable-next-line no-lone-blocks
-{
-  /* <div className="auth">
-  <form onSubmit={handleSubmit} name="authForm" className={`auth__form`}>
-    <h2 className="auth__title">{title}</h2>
-    <label className="popup__form-field">
-      <input
-        name="email"
-        value={userData.email || ""}
-        onChange={handleChange}
-        type="email"
-        id="email-input"
-        className="auth__input auth__input_email"
-        placeholder="Email"
-        minLength="2"
-        maxLength="40"
-      />
-      <span className="popup__error name-input-error"></span>
-    </label>
-    <label className="popup__form-field">
-      <input
-        name="password"
-        value={userData.password || ""}
-        onChange={handleChange}
-        type="password"
-        id="password-input"
-        className="auth__input auth__input_password"
-        placeholder="Пароль"
-        minLength="2"
-        maxLength="200"
-      />
-      <span className="popup__error job-input-error"></span>
-    </label>
-    <button type="submit" className="auth__button" onSubmit={handleSubmit}>
-      {submitValue}
-    </button>
-    <span className="auth__subtitle">
-      Уже зарегистрированы?{" "}
-      <Link to="/signin" className="auth__link">
-        Войти
-      </Link>
-    </span>
-  </form>
-</div>; */
-}

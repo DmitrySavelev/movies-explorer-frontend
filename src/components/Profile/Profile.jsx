@@ -3,7 +3,7 @@ import Header from "../Header/Header";
 
 function Profile({ handleClick }) {
   return (
-    <div className="big-wrapper">
+    <section className="big-wrapper">
       <Header handleClick={handleClick} />
       <div className="profile">
         <div className="profile__wrapper">
@@ -14,6 +14,7 @@ function Profile({ handleClick }) {
               <input
                 className="profile__input"
                 type="text"
+                required
                 placeholder="Дмитрий"
               />
             </div>
@@ -22,6 +23,7 @@ function Profile({ handleClick }) {
               <input
                 className="profile__input"
                 type="text"
+                required
                 placeholder="pochta@yandex.ru"
               />
             </div>
@@ -30,7 +32,7 @@ function Profile({ handleClick }) {
           </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,5 +1,5 @@
 .aboutProject {
-  padding: 113px 70px 105px;
+  padding: 113px 53px 105px 70px;
 }
 
 .aboutProject__wrapper-text {
@@ -52,6 +52,8 @@
   justify-content: center;
   align-items: center;
   padding-top: 10px;
+  font-size: 11px;
+  font-weight: 400;
 }
 
 .aboutProject__frontend_text {
@@ -60,8 +62,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding-top: 10px;
+  font-size: 11px;
+  font-weight: 400;
 }
 
 @media (max-width: 1279px) {

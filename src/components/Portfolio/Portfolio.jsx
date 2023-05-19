@@ -2,8 +2,8 @@ import "./Portfolio.css";
 
 function Portfolio() {
   return (
-    <div className="portfolio">
-      <h5 className="portfolio__title">Портфолио</h5>
+    <section className="portfolio">
+      <p className="portfolio__title">Портфолио</p>
       <ul className="portfolio__list">
         <li className="portfolio__row portfolio__row_bottom-border">
           <a
@@ -13,8 +13,8 @@ function Portfolio() {
             rel="noopener noreferrer"
           >
             Статичный сайт
+            <div className="portfolio__row_arrow"></div>
           </a>
-          <div className="portfolio__row_arrow"></div>
         </li>
         <li className="portfolio__row portfolio__row_bottom-border">
           <a
@@ -24,8 +24,8 @@ function Portfolio() {
             rel="noopener noreferrer"
           >
             Адаптивный сайт
+            <div className="portfolio__row_arrow"></div>
           </a>
-          <div className="portfolio__row_arrow"></div>
         </li>
         <li className="portfolio__row">
           <a
@@ -35,11 +35,11 @@ function Portfolio() {
             rel="noopener noreferrer"
           >
             Одностраничное приложение
+            <div className="portfolio__row_arrow"></div>
           </a>
-          <div className="portfolio__row_arrow"></div>
         </li>
       </ul>
-    </div>
+    </section>
   );
 }
 

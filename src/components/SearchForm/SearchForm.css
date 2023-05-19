@@ -47,28 +47,32 @@
   display: flex;
   align-items: center;
   border-left: none;
-  cursor: pointer;
   border-right: 1px solid #e8e8e8;
   padding-right: 31px;
+  padding-left: 45px;
 }
 
-.form__button_img {
+.form__button-img {
   background-image: url(../../../public/images/find.svg);
-  width: 80px;
+  width: 34px;
   height: 34px;
+  background-position: right;
   background-repeat: no-repeat;
   transition: transform 0.3s ease;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.form__button_img:hover {
+.form__button-img:hover {
   transform: scale(1.2, 1.35);
 }
 
-.switch {
+.shortFilms__switch {
   display: none;
 }
 
-.shortFilms__label {
+.shortFilms {
   width: 228px;
   display: flex;
   gap: 13px;
@@ -84,14 +88,14 @@
   opacity: 0.6;
 }
 
-.new-switch {
+.shortFilms__new-switch {
   background-image: url(../../../public/images/smalltumb.svg);
   width: 36px;
   height: 20px;
   cursor: pointer;
 }
 
-input[type="checkbox"]:checked ~ .new-switch {
+input[type="checkbox"]:checked ~ .shortFilms__new-switch {
   background-image: url(../../../public/images/smalltumboff.svg);
 }
 
@@ -139,7 +143,7 @@ input:focus + div {
     width: 358px;
   }
 
-  .shortFilms__label {
+  .shortFilms {
     width: 207px;
     padding-left: 17px;
     padding-right: 23px;
@@ -190,11 +194,11 @@ input:focus + div {
     border-right: none;
   }
 
-  .shortFilms__label {
+  .shortFilms {
     background-color: #fff;
   }
 
-  .new-switch {
+  .shortFilms__new-switch {
     margin-left: 57px;
   }
 

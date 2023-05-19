@@ -4,7 +4,7 @@ import Logo from "../Logo/Logo";
 
 function Navigation() {
   return (
-    <div className="navigation">
+    <header className="navigation">
       <a href="#aboutProject">
         <Logo />
       </a>
@@ -12,11 +12,11 @@ function Navigation() {
         <Link to="/signup" className="navigation__sigh-up">
           Регистрация
         </Link>
-        <Link to="/signin">
-          <button className="navigation__sigh-in">Войти</button>
+        <Link to="/signin" className="navigation__sigh-in">
+          Войти
         </Link>
       </div>
-    </div>
+    </header>
   );
 }
 

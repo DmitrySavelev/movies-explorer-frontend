@@ -3,11 +3,11 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 function Techs() {
   return (
-    <div className="techs" id="techs">
+    <section className="techs" id="techs">
       <SectionTitle title='Технологии'/>
-      <h1 className="techs__title">7 технологий</h1>
+      <h2 className="techs__title">7 технологий</h2>
       <p className="techs__par">
-        На курсе веб-разработки мы освоили технологии, которые применили 
+        На курсе веб-разработки мы освоили технологии, которые применили
         в дипломном проекте.
       </p>
       <div className="techs__blocks">
@@ -33,7 +33,7 @@ function Techs() {
           <span className="techs__block_span">mongoDB</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

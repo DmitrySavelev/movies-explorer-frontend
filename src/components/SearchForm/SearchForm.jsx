@@ -10,17 +10,18 @@ function SearchForm() {
             <input
               className="form__field"
               type="search"
+              required
               name="films"
               placeholder="Фильм"
             ></input>
             <div className="form__button">
-              <div className="form__button_img"></div>
+              <button className="form__button-img"></button>
             </div>
           </form>
         </div>
-        <label className="shortFilms__label" htmlFor="switch">
-          <input type="checkbox" className="switch" id="switch" />
-          <div className="new-switch"></div>
+        <label className="shortFilms" htmlFor="switch">
+          <input type="checkbox" className="shortFilms__switch" id="shortFilms__switch" />
+          <div className="shortFilms__new-switch"></div>
           <span className="shortFilms__span">Короткометражки</span>
         </label>
       </div>
