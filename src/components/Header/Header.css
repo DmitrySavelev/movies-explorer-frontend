@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-.header__buttons_left {
+.header__buttons-left {
   display: flex;
   align-items: center;
   gap: 16px;
