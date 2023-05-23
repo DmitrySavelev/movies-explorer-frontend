@@ -40,7 +40,7 @@
 
 - Склонировать репозиторий
 
-`git clone https://github.com/DmitrySavelev/movies-explorer-frontend/tree/level-2`
+`git clone https://github.com/DmitrySavelev/movies-explorer-frontend`
 
 - Выполнить команду
 
