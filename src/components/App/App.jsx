@@ -31,7 +31,8 @@ function App() {
       {location.pathname === "/" ? (
         <Navigation />
       ) : location.pathname === "/movies" ||
-        location.pathname === "/saved-movies" ? (
+        location.pathname === "/saved-movies" ||
+        location.pathname === "/profile" ? (
         <Header handleClick={handleClick} />
       ) : (
         ""

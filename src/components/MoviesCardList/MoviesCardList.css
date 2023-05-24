@@ -1,6 +1,8 @@
 .moviesCardList {
   list-style-type: none;
   margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .movies__list {

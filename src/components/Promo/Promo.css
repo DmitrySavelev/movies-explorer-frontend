@@ -1,8 +1,7 @@
 .promo {
-  width: 1200px;
-  margin-left: 40px;
   position: relative;
   box-sizing: border-box;
+  padding: 0 40px;
 }
 
 .promo__wrapper {
@@ -29,8 +28,8 @@
 @media (max-width: 1279px) {
   .promo {
     margin-top: 20px;
-    margin-left: 20px;
-    width: 728px;
+    min-width: 728px;
+    padding: 0 20px;
   }
 
   .promo__wrapper {
@@ -47,13 +46,12 @@
 
 @media (max-width: 767px) {
   .promo {
-    width: 320px;
+    min-width: 320px;
     margin-top: 14px;
-    margin-left: 0px;
   }
 
   .promo__wrapper {
-    width: 292px;
+    min-width: 292px;
     padding: 220px 0 15px;
   }
 

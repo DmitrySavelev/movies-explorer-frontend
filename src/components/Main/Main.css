@@ -5,12 +5,12 @@
 
 @media (max-width: 1279px) {
   .main {
-    width: 768px;
+    min-width: 768px;
   }
 }
 
 @media (max-width: 767px) {
   .main {
-    width: 320px;
+    min-width: 320px;
   }
 }

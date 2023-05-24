@@ -20,19 +20,19 @@ const movies = [
     name: "33 богатыря",
     time: "3ч 11м",
   },
-  {
-    _id: 4,
-    src: "https://i.parket-sale.ru/i/a/a/oboi-komar-goroda-i-megapolisi-xxl4-008-times-square-1.jpg",
-    name: "33 слова",
-    time: "1ч 25м",
-  },
+  // {
+  //   _id: 4,
+  //   src: "https://i.parket-sale.ru/i/a/a/oboi-komar-goroda-i-megapolisi-xxl4-008-times-square-1.jpg",
+  //   name: "33 слова",
+  //   time: "1ч 25м",
+  // },
 
-  {
-    _id: 5,
-    src: "https://i.parket-sale.ru/i/a/a/oboi-komar-goroda-i-megapolisi-xxl4-008-times-square-1.jpg",
-    name: "33 слова",
-    time: "1ч 25м",
-  },
+  // {
+  //   _id: 5,
+  //   src: "https://i.parket-sale.ru/i/a/a/oboi-komar-goroda-i-megapolisi-xxl4-008-times-square-1.jpg",
+  //   name: "33 слова",
+  //   time: "1ч 25м",
+  // },
   // {
   //   _id: 6,
   //   src: "https://img1.goodfon.ru/original/2048x1371/7/12/chikago-illinois-gorod-ulica-1993.jpg",

@@ -48,7 +48,7 @@
   .footer {
     padding: 131px 0px 20px 7px;
     background-color: #fff;
-    width: 768px;
+    min-width: 768px;
   }
 
   .footer__title {
@@ -69,7 +69,7 @@
 @media (max-width: 767px) {
   .footer {
     padding: 43px 10px 20px;
-    width: 320px;
+    min-width: 320px;
   }
 
   .footer__title {

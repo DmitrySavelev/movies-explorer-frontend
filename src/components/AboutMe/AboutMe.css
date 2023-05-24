@@ -10,6 +10,7 @@
 
 .aboutMe__info {
   display: flex;
+  gap: 30px;
   margin: 65px auto 70px;
   justify-content: space-between;
 }
@@ -29,11 +30,14 @@
   font-weight: 500;
 }
 
+.aboutMe__info_text {
+  flex: 1;
+}
+
 .aboutMe__info_par {
   margin-bottom: 99px;
   font-size: 14px;
   line-height: 22px;
-  width: 600px;
 }
 
 .aboutMe__info_link {
@@ -70,7 +74,6 @@
   .aboutMe__info_par {
     font-size: 12px;
     line-height: 18px;
-    width: 364px;
     margin-bottom: 85px;
   }
 
@@ -80,14 +83,17 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
   .aboutMe {
     padding: 72px 14px 0px;
   }
 
   .aboutMe__info {
     flex-direction: column-reverse;
+    align-items: center;
     margin: 65px auto 70px;
+    gap: 0;
+
   }
   .aboutMe__photo {
     width: 292px;

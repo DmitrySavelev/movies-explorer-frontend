@@ -60,7 +60,7 @@
 @media (max-width: 1279px) {
   .navigation {
     padding: 0 30px;
-    width: 768px;
+    min-width: 768px;
   }
 }
 
@@ -68,7 +68,7 @@
   .navigation {
     padding-left: 15px;
     padding-right: 14px;
-    width: 320px;
+    min-width: 320px;
   }
 
   .navigation__sigh-up {

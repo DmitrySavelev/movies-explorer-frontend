@@ -31,8 +31,7 @@
 .techs__blocks {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(7, 90px);
-  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(auto-fit, 90px);
   grid-gap: 10px;
   margin: 100px auto 0;
   letter-spacing: -0.04em;
@@ -92,14 +91,12 @@
   .techs__par {
     font-size: 11px;
     line-height: 16px;
-    margin-left: -4px;
     width: 292px;
   }
 
   .techs__blocks {
-    grid-template-columns: repeat(2, 90px);
-    grid-template-rows: repeat(4, 1fr);
-    margin: 50px auto 0;
-    grid-gap: 10px 4px;
+    grid-template-columns: repeat(auto-fit, 84px);
+    margin: 50px 50px 0;
+    grid-gap: 10px 10px;
   }
 }

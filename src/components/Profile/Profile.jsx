@@ -1,10 +1,8 @@
 import "./Profile.css";
-import Header from "../Header/Header";
 
-function Profile({ handleClick }) {
+function Profile() {
   return (
     <section className="big-wrapper">
-      <Header handleClick={handleClick} />
       <div className="profile">
         <div className="profile__wrapper">
           <h1 className="profile__header">Привет, Дмитрий!</h1>

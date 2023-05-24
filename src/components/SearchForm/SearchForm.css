@@ -1,10 +1,11 @@
 .searchForm {
   display: flex;
   padding: 70px 55px 70px 70px;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchForm__body {
-  width: 915px;
   height: 72px;
   background-color: #f9f9f9;
   border-radius: 9px;
@@ -25,11 +26,12 @@
 .form {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .form__field {
   border: none;
-  width: 757px;
+  min-width: 757px;
   height: 48px;
   padding-left: 18px;
   border-right: none;
@@ -70,7 +72,7 @@
 
 .checkbox {
   background-color: #f9f9f9;
-  width: 228px;
+  min-width: 228px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,13 +138,12 @@ input:focus + div {
 
 @media (max-width: 1279px) {
   .searchForm {
-    padding-left: 30px;
-    padding-top: 78px;
-    padding-bottom: 92px;
+    padding: 78px 30px 92px;
   }
 
   .searchForm__body {
-    width: 503px;
+    min-width: 503px;
+    width: 100%;
   }
 
   .form {
@@ -150,13 +151,16 @@ input:focus + div {
   }
 
   .form__field {
-    width: 358px;
+    min-width: 358px;
+    width: 100%;
   }
 
   .checkbox {
     width: 207px;
     padding-left: 17px;
     padding-right: 23px;
+    padding: 0;
+    margin: 0;
     gap: 15px;
   }
 
@@ -172,18 +176,17 @@ input:focus + div {
 @media (max-width: 767px) {
   .searchForm {
     flex-direction: column;
-    padding-left: 10px;
     gap: 21px;
-    padding-bottom: 5px;
+    padding: 78px 30px 5px;
   }
 
   .form__field {
-    width: 196px;
+    min-width: 196px;
     padding-left: 14px;
   }
 
   .searchForm__body {
-    width: 300px;
+    min-width: 300px;
     padding-left: 0;
     border-radius: 9px;
   }
@@ -211,7 +214,6 @@ input:focus + div {
   }
 
   .checkbox__label {
-    margin-left: 57px;
     font-size: 11px;
   }
 
