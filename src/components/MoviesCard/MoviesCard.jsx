@@ -11,9 +11,9 @@ function MoviesCard({ name, time, src }) {
           <span className="movie-card__time">{time}</span>
         </div>
         {location.pathname === "/movies" ? (
-          <div className="movie-card__like"></div>
+          <button className="movie-card__button movie-card__button_like"></button>
         ) : (
-          <div className="movie-card__delete"></div>
+          <button className="movie-card__button movie-card__button_delete"></button>
         )}
       </div>
       <img src={src} className="movie-card__image" alt="Постер фильма" />

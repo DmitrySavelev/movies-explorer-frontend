@@ -19,11 +19,16 @@ function SearchForm() {
             </div>
           </form>
         </div>
-        <label className="shortFilms" htmlFor="switch">
-          <input type="checkbox" className="shortFilms__switch" id="shortFilms__switch" />
-          <div className="shortFilms__new-switch"></div>
-          <span className="shortFilms__span">Короткометражки</span>
-        </label>
+        <div className="checkbox">
+          <input
+            type="checkbox"
+            className="checkbox__input"
+            id="checkbox__input"
+          />
+          <label className="checkbox__label" htmlFor="checkbox__input">
+            Короткометражки
+          </label>
+        </div>
       </div>
       <hr className="horizon-line" />
     </>

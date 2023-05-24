@@ -4,6 +4,7 @@ li {
 
 .movie-card {
   width: 364px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 8%);
 }
 
 .movie-card__image {
@@ -16,7 +17,6 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fdfdfd;
   padding-top: 12px;
   padding-left: 15px;
   padding-right: 13px;
@@ -37,15 +37,19 @@ li {
   font-size: 15px;
 }
 
-.movie-card__like {
+.movie-card__button {
   width: 30px;
   height: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.movie-card__button_like {
   background-image: url(../../../public/images/like.svg);
 }
 
-.movie-card__delete {
-  width: 30px;
-  height: 30px;
+.movie-card__button_delete {
   background-image: url(../../../public/images/delete.svg);
 }
 
