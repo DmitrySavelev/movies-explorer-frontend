@@ -1,0 +1,154 @@
+.aboutProject {
+  padding: 113px 53px 105px 70px;
+}
+
+.aboutProject__wrapper-text {
+  display: flex;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  gap: 55px;
+}
+
+.aboutProject__wrapper-text_span {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.aboutProject__wrapper-text_par {
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 26px;
+  margin-bottom: 41px;
+}
+
+.aboutProject__schema {
+  display: flex;
+  height: 36px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.aboutProject__backend_diagram {
+  flex-basis: 20%;
+  background-color: #2be080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutProject__frontend_diagram {
+  flex-basis: 80%;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutProject__backend_text {
+  flex-basis: 20%;
+  color: #a0a0a0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.aboutProject__frontend_text {
+  flex-basis: 80%;
+  color: #a0a0a0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 1279px) {
+  .aboutProject {
+    padding: 92px 50px 82px;
+  }
+
+  .aboutProject__wrapper-text {
+    gap: 39px;
+    margin-bottom: 50px;
+  }
+
+  .aboutProject__wrapper-text_par {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 26px;
+    margin-bottom: 41px;
+  }
+
+  .aboutProject__schema {
+    height: 36px;
+  }
+
+  .aboutProject__backend_text {
+    padding-top: 10px;
+  }
+
+  .aboutProject__frontend_text {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .aboutProject {
+    padding: 72px 18px 0px;
+  }
+
+  .aboutProject__wrapper-text {
+    margin-top: 60px;
+    margin-bottom: 17px;
+    gap: 17px;
+    flex-direction: column;
+  }
+
+  .aboutProject__wrapper-text_span {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .aboutProject__wrapper-text_par {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 19px;
+  }
+  .aboutProject__schema {
+    height: 35px;
+    font-size: 11px;
+  }
+
+  .aboutProject__backend_diagram {
+    flex-basis: 35%;
+  }
+
+  .aboutProject__frontend_diagram {
+    flex-basis: 65%;
+  }
+
+  .aboutProject__backend_text {
+    flex-basis: 35%;
+    font-weight: 500;
+  }
+
+  .aboutProject__frontend_text {
+    flex-basis: 65%;
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .aboutProject__backend_text {
+    padding-top: 0;
+    font-size: 11px;
+    font-weight: 400;
+  }
+
+  .aboutProject__frontend_text {
+    padding-top: 0;
+  }
+}

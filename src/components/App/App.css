@@ -1,0 +1,12 @@
+.app {
+  font-family: Inter, Arial, sans-serif, "Times New Roman", Times, serif;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 320px;
+  max-width: 1280px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 auto;
+  padding: 0;
+}

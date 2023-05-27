@@ -1,0 +1,17 @@
+.empty-div {
+  width: 100%;
+  height: 145px;
+  background-color: #fff;
+}
+
+@media (max-width: 1279px) {
+  .empty-div {
+    height: 42px;
+  }
+}
+
+@media (max-width: 767px) {
+  .empty-div {
+    height: 192px;
+  }
+}

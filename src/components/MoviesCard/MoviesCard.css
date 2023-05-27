@@ -1,0 +1,91 @@
+li {
+  list-style-type: none;
+}
+
+.movie-card {
+  width: 364px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 8%);
+}
+
+.movie-card__image {
+  width: 364px;
+  height: 203px;
+  display: block;
+}
+
+.movie-card__options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  padding-left: 15px;
+  padding-right: 13px;
+  padding-bottom: 14px;
+}
+
+.movie-card__info {
+  display: flex;
+  flex-direction: column;
+  border-color: #e8e8e8;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 11px;
+}
+
+.movie-card__text {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.movie-card__button {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.movie-card__button_like {
+  background-image: url(../../../public/images/like.svg);
+}
+
+.movie-card__button_delete {
+  background-image: url(../../../public/images/delete.svg);
+}
+
+.movie-card__time {
+  display: block;
+  color: #a0a0a0;
+  font-size: 11px;
+}
+
+@media (max-width: 1279px) {
+  .movie-card {
+    width: 339px;
+  }
+
+  .movie-card__image {
+    width: 339px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 767px) {
+  .movie-card {
+    width: 300px;
+  }
+
+  .movie-card__options {
+    padding-top: 14px;
+    padding-left: 14px;
+  }
+
+  .movie-card__image {
+    width: 300px;
+    height: 168px;
+  }
+
+  .movie-card__info {
+    font-size: 12px;
+  }
+}

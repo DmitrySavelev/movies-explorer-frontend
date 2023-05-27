@@ -1,0 +1,20 @@
+.sectionTitle {
+  padding-bottom: 23px;
+  border-bottom: 1px solid #000;
+}
+
+.sectionTitle__text {
+  letter-spacing: -0.04em;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .sectionTitle {
+    padding-bottom: 27px;
+  }
+
+  .sectionTitle__text {
+    font-size: 18px;
+  }
+}

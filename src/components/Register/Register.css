@@ -1,0 +1,111 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-left: 16px;
+}
+
+.register__wrapper {
+  width: 396px;
+  padding: 40px 0 50px;
+}
+
+.register__logo {
+  display: inline-block;
+}
+
+.register__header {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 37px 0 42px;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register__span {
+  font-size: 10px;
+  color: #a0a0a0;
+}
+
+.register__input {
+  padding: 0;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+  height: 26px;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.register__input:focus {
+  outline: none;
+  border: none;
+}
+
+.register__button {
+  background-color: #ff6838;
+  height: 45px;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  margin: 129px 0 17px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.register__subtitle {
+  font-size: 14px;
+  color: #a0a0a0;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.register__link {
+  color: #ff6838;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+@media (max-width: 1279px) {
+  .register__wrapper {
+    padding: 202px 15px 50px 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .register__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 26px;
+    width: 260px;
+  }
+
+  .register__header {
+    margin-top: 52px;
+  }
+
+  .register__form {
+    padding: 39px 0px 0 0px;
+    width: 260px;
+  }
+
+  .register__button {
+    margin: 217px 0px 15px 0px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .register__subtitle {
+    font-size: 12px;
+  }
+
+  .register__link {
+    font-size: 12px;
+  }
+}

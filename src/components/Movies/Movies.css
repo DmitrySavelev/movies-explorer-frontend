@@ -1,0 +1,16 @@
+.movies {
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1279px) {
+  .movies {
+    min-width: 768px;
+  }
+}
+
+@media (max-width: 767px) {
+  .movies {
+    min-width: 320px;
+  }
+}
