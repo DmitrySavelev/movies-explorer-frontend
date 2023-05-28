@@ -12,6 +12,7 @@ function Movies() {
       {/* <Preloader /> */}
       <MoviesCardList />
       <More />
+      <More />
     </section>
   );
 }
