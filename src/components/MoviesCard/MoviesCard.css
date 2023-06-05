@@ -43,6 +43,11 @@ li {
   cursor: pointer;
   border: none;
   background-color: transparent;
+  transition: opacity .3s ease;
+}
+
+.movie-card__button:hover {
+  opacity: 0.5;
 }
 
 .movie-card__button_like {
@@ -53,7 +58,7 @@ li {
   background-image: url(../../../public/images/delete.svg);
 }
 
-.movie-card__time {
+.movie-card__duration {
   display: block;
   color: #a0a0a0;
   font-size: 11px;

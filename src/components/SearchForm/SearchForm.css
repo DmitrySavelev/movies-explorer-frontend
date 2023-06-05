@@ -101,7 +101,7 @@
 .checkbox__label::before {
   content: "";
   display: inline-block;
-  background-image: url(../../../public/images/smalltumb.svg);
+  background-image: url(../../../public/images/smalltumboff.svg);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -113,7 +113,7 @@
 }
 
 input[type="checkbox"]:checked + .checkbox__label::before {
-  background-image: url(../../../public/images/smalltumboff.svg);
+  background-image: url(../../../public/images/smalltumb.svg);
 }
 
 input {
