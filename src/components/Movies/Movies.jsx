@@ -10,27 +10,28 @@ function Movies({
   searchedMovies,
   setSearchedMovies,
   isLoading,
-  isButtonClicked,
   setIsButtonClicked,
-  // searchHandler,
+  isButtonClicked,
+  isEmptyPage,
+  setIsEmptyPage,
 }) {
   return (
     <section className="movies">
       <SearchForm
         cards={cards}
-        setSearchedMovies={setSearchedMovies}
         searchedMovies={searchedMovies}
+        setSearchedMovies={setSearchedMovies}
         isButtonClicked={isButtonClicked}
         setIsButtonClicked={setIsButtonClicked}
-        // searchHandler={searchHandler}
       />
       {isLoading ? (
         <Preloader />
       ) : (
         <MoviesCardList
-          cards={cards}
           searchedMovies={searchedMovies}
-          isLoading={isLoading}
+          isButtonClicked={isButtonClicked}
+          isEmptyPage={isEmptyPage}
+          setIsEmptyPage={setIsEmptyPage}
         />
       )}
       {/* <More /> */}

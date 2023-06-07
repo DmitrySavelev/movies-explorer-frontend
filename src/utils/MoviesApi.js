@@ -38,19 +38,6 @@ class Api {
 
 
 
-  // editProfile(infoData) {
-  //   const token = localStorage.getItem('token');
-  //   return fetch(`${BASE_URL}users/me`, {
-  //     method: 'PATCH',
-  //     headers: {
-  //       "content-type": "application/json",
-  //       authorization: `Bearer ${token}`
-  //     },
-  //     body: JSON.stringify(infoData)
-  //   })
-  //     .then(this._handleResponse)
-  // }
-
   // addNewCard(cardsData) {
   //   const token = localStorage.getItem('token');
   //   return fetch(`${BASE_URL}cards`, {

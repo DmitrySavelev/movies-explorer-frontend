@@ -1,7 +1,13 @@
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
+import { useEffect } from "react";
 
-function MoviesCardList({ cards, searchedMovies, isLoading }) {
+function MoviesCardList({
+  searchedMovies,
+  isButtonClicked,
+  isEmptyPage,
+  setIsEmptyPage,
+}) {
   const getTimeFromMins = (mins) => {
     let hours = Math.trunc(mins / 60);
     let minutes = mins % 60;
@@ -33,29 +39,29 @@ function MoviesCardList({ cards, searchedMovies, isLoading }) {
     ));
   };
 
+  useEffect(() => {
+    if (isButtonClicked && isEmptyPage) {
+      setIsEmptyPage(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isButtonClicked]);
+
   return (
-    <div>
-      {searchedMovies ? (
-        searchedMovies.length > 0 ? (
-          <div className="moviesCardList">
-            <ul className="movies__list">{moviesList(searchedMovies)}</ul>
-          </div>
-        ) : (
-          <span>Ничего не найдено</span>
-        )
+    <div className="moviesCardList">
+      {isEmptyPage ? (
+        <div className="moviesCardList__wrapper"></div>
       ) : (
-        <></>
+        <>
+          {searchedMovies.length > 0 ? (
+            <ul className="movies__list">{moviesList(searchedMovies)}</ul>
+          ) : (
+            <div className="moviesCardList__wrapper">
+              <span>Ничего не найдено</span>
+            </div>
+          )}
+        </>
       )}
     </div>
-    // <div>
-    //   {searchedMovies.length >= 1 ? (
-    //     <div className="moviesCardList">
-    //       <ul className="movies__list">{moviesList(searchedMovies)}</ul>
-    //     </div>
-    //   ) : (
-    //     <span>Ничего не найдено</span>
-    //   )}
-    // </div>
   );
 }
 

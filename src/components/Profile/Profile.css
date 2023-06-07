@@ -80,6 +80,7 @@ input::placeholder {
   text-align: center;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  text-decoration: none;
 }
 
 .profile__form_exit:hover {

@@ -3,10 +3,10 @@ import "./SearchForm.css";
 
 function SearchForm({
   cards,
-  searchedMovies,
   setSearchedMovies,
   isButtonClicked,
   setIsButtonClicked,
+  searchedMovies,
 }) {
   const [inputValue, setInputValue] = useState("");
   const [isChecked, setIsChecked] = useState(false);
@@ -25,23 +25,21 @@ function SearchForm({
   };
 
   useEffect(() => {
-    if (cards.length > 0) {
-      const filteredArr = cards.filter((movie) => {
-        return (
-          (movie.nameRU.toLowerCase().includes(inputValue) ||
-            movie.nameEN.toLowerCase().includes(inputValue)) &&
-          handleDuration(movie)
-        );
-      });
-      setSearchedMovies(filteredArr);
-    }
-
+    const filteredArr = cards.filter((movie) => {
+      return (
+        (movie.nameRU.toLowerCase().includes(inputValue) ||
+          movie.nameEN.toLowerCase().includes(inputValue)) &&
+        handleDuration(movie)
+      );
+    });
+    setSearchedMovies(filteredArr);
     setIsButtonClicked(false);
-  }, [cards]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isButtonClicked, cards]);
 
-  const handleInputChange = (event) => {
+  function handleInputChange(event) {
     setInputValue(event.target.value);
-  };
+  }
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);

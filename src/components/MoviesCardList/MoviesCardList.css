@@ -14,6 +14,12 @@ li:hover {
   justify-content: center;
 }
 
+.moviesCardList__wrapper {
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
 .movies__list {
   padding: 54px 0 0;
   display: grid;

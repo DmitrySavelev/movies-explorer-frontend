@@ -3,12 +3,30 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import "./SavedMovies.css";
 
-function SavedMovies() {
+function SavedMovies({
+  cards,
+  searchedMovies,
+  setSearchedMovies,
+  isLoading,
+  setIsButtonClicked,
+  isButtonClicked,
+  isEmptyPage,
+  setIsEmptyPage,
+}) {
   return (
     <section className="movies">
-      <SearchForm />
+      <SearchForm
+        cards={cards}
+        setSearchedMovies={setSearchedMovies}
+        setIsButtonClicked={setIsButtonClicked}
+      />
       {/* <Preloader /> */}
-      <MoviesCardList />
+      <MoviesCardList
+        searchedMovies={searchedMovies}
+        isButtonClicked={isButtonClicked}
+        isEmptyPage={isEmptyPage}
+        setIsEmptyPage={setIsEmptyPage}
+      />
       <div className="empty-div"></div>
     </section>
   );

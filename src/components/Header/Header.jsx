@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import Logo from "../Logo/Logo";
 
-function Header({ handleClick }) {
+function Header({ onOpen }) {
   return (
     <header className="header">
       <div className="header__buttons-left">
@@ -22,7 +22,7 @@ function Header({ handleClick }) {
       <Link to="/profile" className="header__button header__button_account">
         Аккаунт
       </Link>
-      <button className="burger" onClick={handleClick}></button>
+      <button className="burger" onClick={onOpen}></button>
     </header>
   );
 }
