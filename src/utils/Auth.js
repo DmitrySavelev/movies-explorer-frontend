@@ -14,6 +14,12 @@ export const register = (name, email, password) => {
     body: JSON.stringify({ name, email, password }),
   })
     .then(handleResponse)
+    .then((data) => {
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+        return data;
+      }
+    });
 }
 
 export const authorize = (email, password) => {

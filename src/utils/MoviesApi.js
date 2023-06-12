@@ -90,4 +90,4 @@ class Api {
 
 }
 
-export const api = new Api(BASE_URL);
+export const moviesApi = new Api(BASE_URL);

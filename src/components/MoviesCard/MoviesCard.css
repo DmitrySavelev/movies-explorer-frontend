@@ -53,6 +53,9 @@ li {
 .movie-card__button_like {
   background-image: url(../../../public/images/like.svg);
 }
+.movie-card__button_unlike {
+  background-image: url(../../../public/images/unlike.svg);
+}
 
 .movie-card__button_delete {
   background-image: url(../../../public/images/delete.svg);

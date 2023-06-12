@@ -61,8 +61,7 @@ function Profile({ onSignOut, onUpdateUser }) {
                 value={email}
               />
             </div>
-            <button>Редактировать</button>
-            <span className="profile__form_edit">Редактировать</span>
+            <button className="profile__form_edit">Редактировать</button>
             <Link
               to="/"
               className="profile__form_exit"

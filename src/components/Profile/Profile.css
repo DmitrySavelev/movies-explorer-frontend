@@ -68,6 +68,8 @@ input::placeholder {
   cursor: pointer;
   margin: 203px auto 17px;
   transition: opacity 0.3s ease;
+  border: none;
+  background-color: transparent;
 }
 
 .profile__form_edit:hover {

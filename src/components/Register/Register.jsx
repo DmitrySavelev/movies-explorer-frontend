@@ -2,25 +2,28 @@ import { Link } from "react-router-dom";
 import "./Register.css";
 import Logo from "../Logo/Logo";
 import { useState } from "react";
+import { useValidationForm } from "../../utils/useValidationForm";
 
 function Register({ handleRegister }) {
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const { values, errors, isValid, handleChange } = useValidationForm();
 
-  const handleChange = (evt) => {
-    const { name, value } = evt.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
-  };
+  // const [userData, setUserData] = useState({
+  //   name: "",
+  //   email: "",
+  //   password: "",
+  // });
+
+  // const handleChange = (evt) => {
+  //   const { name, value } = evt.target;
+  //   setUserData({
+  //     ...userData,
+  //     [name]: value,
+  //   });
+  // };
 
   function handleSubmit(e) {
     e.preventDefault();
-    handleRegister(userData)
+    handleRegister(values)
       .then(() => {
         setUserData({ name: "", email: "", password: "" });
       })
@@ -29,6 +32,17 @@ function Register({ handleRegister }) {
         console.log(`Что-то пошло не так! ${error} `);
       });
   }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   handleRegister(userData)
+  //     .then(() => {
+  //       setUserData({ name: "", email: "", password: "" });
+  //     })
+  //     .catch((error) => {
+  //       // setIsSuccessTooltipStatus(false);
+  //       console.log(`Что-то пошло не так! ${error} `);
+  //     });
+  // }
 
   return (
     <section className="register">

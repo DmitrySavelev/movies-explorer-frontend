@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./SearchForm.css";
+import { useLocation } from "react-router-dom";
 
 function SearchForm({
   cards,
@@ -7,9 +8,16 @@ function SearchForm({
   isButtonClicked,
   setIsButtonClicked,
   searchedMovies,
+  savedMovies,
+  pushMore,
+  setPushMore,
+  setIsShowedButton,
+  isShowedButton,
 }) {
   const [inputValue, setInputValue] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+
+  let location = useLocation();
 
   const handleDuration = (movie) => {
     if (!isChecked) {
@@ -21,21 +29,46 @@ function SearchForm({
 
   const searchHandler = (e) => {
     e.preventDefault();
+    setPushMore(0);
     setIsButtonClicked(true);
   };
 
+  // function filteredArr(arr) {
+  //   arr.filter((movie) => {
+  //     return (
+  //       (movie.nameRU.toLowerCase().includes(inputValue) ||
+  //         movie.nameEN.toLowerCase().includes(inputValue)) &&
+  //       handleDuration(movie)
+  //     );
+  //   });
+  // }
+
   useEffect(() => {
-    const filteredArr = cards.filter((movie) => {
-      return (
-        (movie.nameRU.toLowerCase().includes(inputValue) ||
-          movie.nameEN.toLowerCase().includes(inputValue)) &&
-        handleDuration(movie)
-      );
-    });
-    setSearchedMovies(filteredArr);
+    if (location.pathname === "/movies") {
+      const filteredArr = cards.filter((movie) => {
+        return (
+          (movie.nameRU.toLowerCase().includes(inputValue) ||
+            movie.nameEN.toLowerCase().includes(inputValue)) &&
+          handleDuration(movie)
+        );
+      });
+      if (filteredArr.length > 0) {
+        setIsShowedButton(true);
+      }
+      setSearchedMovies(filteredArr);
+    } else {
+      const filtered = savedMovies.filter((movie) => {
+        return (
+          (movie.nameRU.toLowerCase().includes(inputValue) ||
+            movie.nameEN.toLowerCase().includes(inputValue)) &&
+          handleDuration(movie)
+        );
+      });
+      setSearchedMovies(filtered);
+    }
     setIsButtonClicked(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isButtonClicked, cards]);
+  }, [cards, pushMore, savedMovies, isButtonClicked]);
 
   function handleInputChange(event) {
     setInputValue(event.target.value);

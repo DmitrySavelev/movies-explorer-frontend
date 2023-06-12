@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import "./Popup.css";
 
-const Popup = ({ isOpen, onClose }) => {
+const Popup = ({ isOpen, onClose, setSearchedMovies }) => {
+  function handleClickClose() {
+    onClose();
+    setSearchedMovies([]);
+  }
   return (
     <>
       <section className={`popup ${isOpen ? "popup_opened" : ""}`}>
@@ -12,17 +16,17 @@ const Popup = ({ isOpen, onClose }) => {
           onClick={onClose}
         ></button>
         <div className="popup__wrapper">
-          <Link to="/" className="popup__span" onClick={onClose}>
+          <Link to="/" className="popup__span" onClick={handleClickClose}>
             Главная
           </Link>
-          <Link to="/movies" className="popup__span" onClick={onClose}>
+          <Link to="/movies" className="popup__span" onClick={handleClickClose}>
             Фильмы
           </Link>
-          <Link to="/saved-movies" className="popup__span" onClick={onClose}>
+          <Link to="/saved-movies" className="popup__span" onClick={handleClickClose}>
             Сохранённые фильмы
           </Link>
         </div>
-        <Link to="/profile" className="popup__account" onClick={onClose}>
+        <Link to="/profile" className="popup__account" onClick={handleClickClose}>
           Аккаунт
         </Link>
       </section>
