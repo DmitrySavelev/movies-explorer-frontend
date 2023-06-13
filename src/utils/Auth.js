@@ -2,7 +2,7 @@ export const BASE_URL = "http://localhost:3001/";
 // export const BASE_URL = "https://api.mesto.savelev.nomoredomains.monster/";
 
 const handleResponse = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
+  return res.ok ? res.json() : Promise.reject(res);
 };
 
 export const register = (name, email, password) => {
@@ -15,10 +15,7 @@ export const register = (name, email, password) => {
   })
     .then(handleResponse)
     .then((data) => {
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-        return data;
-      }
+      return data;
     });
 }
 

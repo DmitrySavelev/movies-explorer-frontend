@@ -9,7 +9,6 @@ function MoviesCard({
   src,
   handleCreateMovie,
   handleCardDelete,
-  cards,
   movie,
   savedMovies,
 }) {

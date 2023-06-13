@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import "./SearchForm.css";
 import { useLocation } from "react-router-dom";
+import { useValidationForm } from "../../utils/useValidationForm";
 
 function SearchForm({
   cards,
   setSearchedMovies,
   isButtonClicked,
   setIsButtonClicked,
-  searchedMovies,
   savedMovies,
   pushMore,
   setPushMore,
   setIsShowedButton,
-  isShowedButton,
+  responseMessage,
 }) {
-  const [inputValue, setInputValue] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const { values, isValid, handleChange } = useValidationForm();
 
   let location = useLocation();
 
@@ -33,46 +33,29 @@ function SearchForm({
     setIsButtonClicked(true);
   };
 
-  // function filteredArr(arr) {
-  //   arr.filter((movie) => {
-  //     return (
-  //       (movie.nameRU.toLowerCase().includes(inputValue) ||
-  //         movie.nameEN.toLowerCase().includes(inputValue)) &&
-  //       handleDuration(movie)
-  //     );
-  //   });
-  // }
+  function getFilteredArr(arr) {
+    const filteredArr = arr.filter((movie) => {
+      return (
+        (movie.nameRU.toLowerCase().includes(values.films) ||
+          movie.nameEN.toLowerCase().includes(values.films)) &&
+        handleDuration(movie)
+      );
+    });
+    setSearchedMovies(filteredArr);
+    return filteredArr;
+  }
 
   useEffect(() => {
     if (location.pathname === "/movies") {
-      const filteredArr = cards.filter((movie) => {
-        return (
-          (movie.nameRU.toLowerCase().includes(inputValue) ||
-            movie.nameEN.toLowerCase().includes(inputValue)) &&
-          handleDuration(movie)
-        );
-      });
-      if (filteredArr.length > 0) {
+      if (getFilteredArr(cards).length > 0) {
         setIsShowedButton(true);
       }
-      setSearchedMovies(filteredArr);
     } else {
-      const filtered = savedMovies.filter((movie) => {
-        return (
-          (movie.nameRU.toLowerCase().includes(inputValue) ||
-            movie.nameEN.toLowerCase().includes(inputValue)) &&
-          handleDuration(movie)
-        );
-      });
-      setSearchedMovies(filtered);
+      getFilteredArr(savedMovies);
     }
     setIsButtonClicked(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards, pushMore, savedMovies, isButtonClicked]);
-
-  function handleInputChange(event) {
-    setInputValue(event.target.value);
-  }
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
@@ -85,17 +68,21 @@ function SearchForm({
           <form className="form">
             <div className="searchForm__find-left"></div>
             <input
-              onChange={handleInputChange}
+              onChange={handleChange}
               className="form__field"
               type="search"
               required
+              minLength="2"
               name="films"
               placeholder="Фильм"
             ></input>
             <div className="form__button">
               <button
                 onClick={searchHandler}
-                className="form__button-img"
+                disabled={!isValid}
+                className={`form__button-img ${
+                  !isValid ? "form__button-img_disabled" : ""
+                }`}
               ></button>
             </div>
           </form>
@@ -113,6 +100,12 @@ function SearchForm({
           </label>
         </div>
       </div>
+      <span className="searchForm__form_error">
+        {isValid || "Нужно ввести ключевое слово"}
+      </span>
+      <span className={`searchForm__response-error`}>
+        {responseMessage.error}
+      </span>
       <hr className="horizon-line" />
     </>
   );

@@ -12,10 +12,6 @@ export function useValidationForm() {
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: input.validationMessage });
     setIsValid(input.closest("form").checkValidity());
-    // setUserData({
-    //   ...userData,
-    //   [name]: value,
-    // });
   };
 
   const resetForm = useCallback(

@@ -16,6 +16,25 @@
   border-radius: 9px 0 0 9px;
 }
 
+.searchForm__response-error {
+  display: block;
+  margin-bottom: 10px;
+  height: 32px;
+  color: #ee3465;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.searchForm__form_error {
+  color: #ee3465;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+}
+
 .searchForm__find-left {
   background-image: url(../../../public/images/find_left.svg);
   width: 19px;
@@ -64,6 +83,11 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.form__button-img_disabled {
+  background-image: url(../../../public/images/find_disable.svg);
+  cursor: default;
 }
 
 .form__button-img:hover {

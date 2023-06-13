@@ -23,6 +23,7 @@ function Movies({
   setPushMore,
   isShowedButton,
   setIsShowedButton,
+  responseMessage,
 }) {
   return (
     <section className="movies">
@@ -34,14 +35,13 @@ function Movies({
         setIsButtonClicked={setIsButtonClicked}
         pushMore={pushMore}
         setPushMore={setPushMore}
-        isShowedButton={isShowedButton}
         setIsShowedButton={setIsShowedButton}
+        responseMessage={responseMessage}
       />
       {isLoading ? (
         <Preloader />
       ) : (
         <MoviesCardList
-          cards={cards}
           savedMovies={savedMovies}
           searchedMovies={searchedMovies}
           isButtonClicked={isButtonClicked}
@@ -50,9 +50,7 @@ function Movies({
           handleCreateMovie={handleCreateMovie}
           handleCardDelete={handleCardDelete}
           countCardsInitialLoad={countCardsInitialLoad}
-          countCardsAddMore={countCardsAddMore}
           pushMore={pushMore}
-          setPushMore={setPushMore}
           setIsShowedButton={setIsShowedButton}
         />
       )}

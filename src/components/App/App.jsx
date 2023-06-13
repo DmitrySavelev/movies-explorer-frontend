@@ -7,7 +7,7 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
-// import NotFound from "../NotFound/NotFound";
+import NotFound from "../NotFound/NotFound";
 import Popup from "../Popup/Popup";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -17,6 +17,7 @@ import { mainApi } from "../../utils/MainApi";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { register, authorize, checkToken } from "../../utils/Auth";
 import ProtectedRoute from "../ProtectedRoute";
+import { messages } from "../../utils/config";
 
 function App() {
   let location = useLocation();
@@ -30,17 +31,18 @@ function App() {
     name: "",
     email: "",
   });
+
   const [isLoading, setIsLoading] = useState(false);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [isEmptyPage, setIsEmptyPage] = useState(true);
+  const [countCardsAddMore, setCountCardsAddMore] = useState();
+  const [countCardsInitialLoad, setCountCardsInitialLoad] = useState();
+  const [pushMore, setPushMore] = useState(0);
+  const [isShowedButton, setIsShowedButton] = useState(false);
+  const [responseMessage, setResponseMessage] = useState({});
   const [loggedIn, setLoggedIn] = useState(
     localStorage.getItem("loggedIn") === "true"
   );
-
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
 
   useEffect(() => {
     localStorage.setItem("loggedIn", loggedIn);
@@ -90,10 +92,6 @@ function App() {
       checkToken(jwt)
         .then((res) => {
           setLoggedIn(true);
-          setUserData({
-            email: res.email,
-            password: res.password,
-          });
         })
         .catch((error) => console.error(error));
     }
@@ -104,25 +102,20 @@ function App() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   mainApi.getMovies().then((movies) => {
-  //     setSavedMovies(movies);
-  //   });
-  //   console.log("savedMovies<<<>>>", savedMovies);
-  // }, []);
-
-  // localStorage.setItem("initialValues", JSON.stringify({
-  //   searchStringInitial: string,
-  //   isCheckedInitial: onlyShortMovies,
-  //   moviesInitial: movies
-  // }))
   function handleRegister({ name, email, password }) {
-    return register(name, email, password).then((res) => {
-      handleLogin({ email, password });
-      if (res) {
-        navigate("/movies", { replace: true });
-      }
-    });
+    return register(name, email, password)
+      .then((res) => {
+        handleLogin({ email, password });
+        setResponseMessage({});
+      })
+      .catch((err) => {
+        console.log(err.status);
+        if (err.status === 409) {
+          setResponseMessage({ error: messages.emailError });
+        } else {
+          setResponseMessage({ error: messages.registerError });
+        }
+      });
   }
 
   function handleLogin({ email, password }) {
@@ -130,15 +123,16 @@ function App() {
       .then((res) => {
         if (res.token) {
           setLoggedIn(true);
-          setUserData({
-            email: email,
-            password: password,
-          });
+          setResponseMessage({});
           navigate("/movies");
         }
       })
-      .catch(() => {
-        // setIsOpenInfoTooltip(true);
+      .catch((err) => {
+        if (err.status === 401) {
+          setResponseMessage({ error: messages.loginError });
+        } else {
+          setResponseMessage({ error: messages.registerError });
+        }
       });
   }
 
@@ -146,18 +140,22 @@ function App() {
     setLoggedIn(false);
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("token");
-    localStorage.removeItem("initialValues");
   }
 
   function handleUpdateUser(userData) {
-    console.log(userData);
     mainApi
       .editProfile(userData)
       .then((data) => {
-        console.log(data);
-        setCurrentUser(data);
+        setCurrentUser({ name: data.name, email: data.email });
+        setResponseMessage({ message: messages.successMessage });
       })
-      .catch((error) => console.log(error));
+      .catch((err) => {
+        if (err.status === 409) {
+          setResponseMessage({ error: messages.emailError });
+        } else {
+          setResponseMessage({ error: messages.editUserInfoError });
+        }
+      });
   }
 
   function handleCreateMovie(movie) {
@@ -203,16 +201,9 @@ function App() {
             })
           );
         }
-        // setResponseMessage({});
       })
-      .catch((error) => console.log(error));
-    // .catch(() => setResponseMessage({ error: messages.cardDeleteError }));
+      .catch(() => setResponseMessage({ error: messages.cardDeleteError }));
   }
-
-  const [countCardsAddMore, setCountCardsAddMore] = useState();
-  const [countCardsInitialLoad, setCountCardsInitialLoad] = useState();
-  const [pushMore, setPushMore] = useState(0);
-  const [isShowedButton, setIsShowedButton] = useState(false);
 
   function adaptCountCards() {
     if (window.innerWidth > 1279) {
@@ -232,6 +223,10 @@ function App() {
   function onResize() {
     clearTimeout(timeOutHandler);
     timeOutHandler = setTimeout(adaptCountCards, 1000);
+  }
+
+  function reset() {
+    setResponseMessage({});
   }
 
   return (
@@ -272,6 +267,7 @@ function App() {
                   setPushMore={setPushMore}
                   isShowedButton={isShowedButton}
                   setIsShowedButton={setIsShowedButton}
+                  responseMessage={responseMessage}
                 />
               }
             />
@@ -295,18 +291,30 @@ function App() {
                   countCardsAddMore={countCardsAddMore}
                   pushMore={pushMore}
                   setPushMore={setPushMore}
-                  isShowedButton={isShowedButton}
                   setIsShowedButton={setIsShowedButton}
+                  responseMessage={responseMessage}
                 />
               }
             />
             <Route
               path="/signin"
-              element={<Login handleLogin={handleLogin} />}
+              element={
+                <Login
+                  reset={reset}
+                  onSignIn={handleLogin}
+                  responseMessage={responseMessage}
+                />
+              }
             />
             <Route
               path="/signup"
-              element={<Register handleRegister={handleRegister} />}
+              element={
+                <Register
+                  reset={reset}
+                  onSignUp={handleRegister}
+                  responseMessage={responseMessage}
+                />
+              }
             />
             <Route
               path="/profile"
@@ -316,9 +324,12 @@ function App() {
                   element={Profile}
                   onUpdateUser={handleUpdateUser}
                   onSignOut={handleSignOut}
+                  reset={reset}
+                  responseMessage={responseMessage}
                 />
               }
             />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Popup
@@ -333,7 +344,6 @@ function App() {
         ) : (
           ""
         )}
-        {/* <NotFound/> */}
       </div>
     </CurrentUserContext.Provider>
   );

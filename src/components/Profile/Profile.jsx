@@ -1,36 +1,42 @@
 import { Link } from "react-router-dom";
 import "./Profile.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
+import { useValidationForm } from "../../utils/useValidationForm";
 
-function Profile({ onSignOut, onUpdateUser }) {
+function Profile({ reset, onSignOut, onUpdateUser, responseMessage }) {
   const CurrentUser = useContext(CurrentUserContext);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-  });
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  const { values, errors, isValid, setValues, setIsValid, handleChange } =
+    useValidationForm();
 
   useEffect(() => {
-    if (CurrentUser.data) {
-      setName(CurrentUser.data.name);
-      setEmail(CurrentUser.data.email);
+    reset();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (CurrentUser) {
+      setValues({
+        name: CurrentUser?.data?.name,
+        email: CurrentUser?.data?.email,
+      });
     }
-  }, [CurrentUser]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [CurrentUser, setValues]);
+
+  useEffect(() => {
+    if (
+      CurrentUser.name === values.name &&
+      CurrentUser.email === values.email
+    ) {
+      setIsValid(false);
+    }
+  }, [CurrentUser, setIsValid, values]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onUpdateUser({ name: name, email: email });
+    reset();
+    onUpdateUser(values);
   }
 
   return (
@@ -44,24 +50,53 @@ function Profile({ onSignOut, onUpdateUser }) {
               <input
                 className="profile__input"
                 type="text"
+                id="name"
                 required
-                value={name}
-                onChange={handleNameChange}
+                minLength="2"
+                maxLength="30"
+                value={values.name || ""}
+                onChange={handleChange}
                 name="name"
               />
             </div>
+            <span className="profile__form_error" id="input-error">
+              {errors.name || ""}
+            </span>
             <div className="profile__form_field">
               <span className="profile__span">E-mail</span>
               <input
                 className="profile__input"
-                type="text"
+                type="email"
+                id="email"
                 required
-                onChange={handleEmailChange}
+                value={values.email || ""}
+                onChange={handleChange}
                 name="email"
-                value={email}
               />
             </div>
-            <button className="profile__form_edit">Редактировать</button>
+            <span className="profile__form_error" id="input-error">
+              {errors.email || ""}
+            </span>
+            <span
+              className={`profile__form_response-error ${
+                responseMessage.message && "profile__form_response-message"
+              }`}
+            >
+              {responseMessage.error || responseMessage.message}
+            </span>
+            {!isValid ? (
+              <button
+                type="button"
+                className="profile__form_edit profile__form_edit_disable"
+                disabled
+              >
+                Редактировать
+              </button>
+            ) : (
+              <button type="submit" className="profile__form_edit">
+                Сохранить
+              </button>
+            )}
             <Link
               to="/"
               className="profile__form_exit"
@@ -79,72 +114,3 @@ function Profile({ onSignOut, onUpdateUser }) {
 }
 
 export default Profile;
-
-// const EditProfilePopup = ({ title, name, isOpen, onClose, onUpdateUser }) => {
-//   const currentUser = useContext(CurrentUserContext);
-//   const [nameUser, setNameUser] = useState("");
-//   const [description, setDescription] = useState("");
-
-//   const handleNameChange = (e) => {
-//     setNameUser(e.target.value);
-//   };
-
-//   const handleDescriptionChange = (e) => {
-//     setDescription(e.target.value);
-//   };
-
-//   function handleSubmit(e) {
-//     e.preventDefault();
-//     // Передаём значения управляемых компонентов во внешний обработчик
-//     onUpdateUser({
-//       name: nameUser,
-//       about: description,
-//     });
-//   }
-
-//   useEffect(() => {
-//     setNameUser(currentUser.name);
-//     setDescription(currentUser.about);
-//   }, [currentUser, isOpen]);
-
-//   return (
-//     <PopupWithForm
-//       title={title}
-//       name={name}
-//       isOpen={isOpen}
-//       onClose={onClose}
-//       onSubmit={handleSubmit}
-//     >
-//       <label className="popup__form-field">
-//         <input
-//           name="inputName"
-//           value={nameUser}
-//           onChange={handleNameChange}
-//           type="text"
-//           id="name-input"
-//           className="popup__input popup__input_name"
-//           placeholder="Ваше имя"
-//           minLength="2"
-//           maxLength="40"
-//           required
-//         />
-//         <span className="popup__error name-input-error"></span>
-//       </label>
-//       <label className="popup__form-field">
-//         <input
-//           name="inputJob"
-//           value={description}
-//           onChange={handleDescriptionChange}
-//           type="text"
-//           id="job-input"
-//           className="popup__input popup__input_job"
-//           placeholder="Ваша специализация"
-//           minLength="2"
-//           maxLength="200"
-//           required
-//         />
-//         <span className="popup__error job-input-error"></span>
-//       </label>
-//     </PopupWithForm>
-//   );
-// };

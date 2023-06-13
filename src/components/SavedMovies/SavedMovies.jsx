@@ -19,14 +19,13 @@ function SavedMovies({
   countCardsAddMore,
   pushMore,
   setPushMore,
-  isShowedButton,
   setIsShowedButton,
+  responseMessage,
 }) {
   return (
     <section className="movies">
       <SearchForm
         cards={cards}
-        searchedMovies={searchedMovies}
         setSearchedMovies={setSearchedMovies}
         isButtonClicked={isButtonClicked}
         setIsButtonClicked={setIsButtonClicked}
@@ -34,6 +33,7 @@ function SavedMovies({
         pushMore={pushMore}
         setPushMore={setPushMore}
         setIsShowedButton={setIsShowedButton}
+        responseMessage={responseMessage}
       />
       {isLoading ? (
         <Preloader />
