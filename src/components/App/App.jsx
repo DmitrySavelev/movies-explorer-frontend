@@ -109,7 +109,7 @@ function App() {
         setResponseMessage({});
       })
       .catch((err) => {
-        console.log(err.status);
+        console.log(err);
         if (err.status === 409) {
           setResponseMessage({ error: messages.emailError });
         } else {
