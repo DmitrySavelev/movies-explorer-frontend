@@ -2,7 +2,7 @@
 
 Фронтенд проекта Movies Explorer на React.js - сервис по управлению собственной коллекцией фильмов.
 
-## [Ссылка на репозиторий](https://github.com/DmitrySavelev/movies-explorer-frontend/tree/level-2)
+## [Ссылка на Pull Request](https://github.com/DmitrySavelev/movies-explorer-frontend/pull/6)
 
 ## Ссылка на сайт
 
