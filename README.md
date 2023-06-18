@@ -4,9 +4,7 @@
 
 ## [Ссылка на Pull Request](https://github.com/DmitrySavelev/movies-explorer-frontend/pull/6)
 
-## Ссылка на сайт
-
-(здесь будет ссылка на сайт)
+## [Ссылка на сайт](http://movies.savelev.nomoredomains.rocks/movies)
 
 ---
 
