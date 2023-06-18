@@ -19,8 +19,16 @@
 .notFound__back {
   margin: 185px auto 20px;
   text-decoration: none;
-  color: #FF6838;
+  color: #ff6838;
   font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.notFound__back:hover {
+  transform: scale(1.2, 1.35);
 }
 
 @media (max-width: 1279px) {

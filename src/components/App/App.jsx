@@ -247,53 +247,57 @@ function App() {
             <Route
               path="/movies"
               element={
-                <ProtectedRoute
-                  loggedIn={loggedIn}
-                  element={Movies}
-                  cards={cards}
-                  savedMovies={savedMovies}
-                  setSearchedMovies={setSearchedMovies}
-                  searchedMovies={searchedMovies}
-                  isLoading={isLoading}
-                  setIsButtonClicked={setIsButtonClicked}
-                  isButtonClicked={isButtonClicked}
-                  isEmptyPage={isEmptyPage}
-                  setIsEmptyPage={setIsEmptyPage}
-                  handleCreateMovie={handleCreateMovie}
-                  handleCardDelete={handleCardDelete}
-                  countCardsInitialLoad={countCardsInitialLoad}
-                  countCardsAddMore={countCardsAddMore}
-                  pushMore={pushMore}
-                  setPushMore={setPushMore}
-                  isShowedButton={isShowedButton}
-                  setIsShowedButton={setIsShowedButton}
-                  responseMessage={responseMessage}
-                />
+                loggedIn && (
+                  <ProtectedRoute
+                    loggedIn={loggedIn}
+                    element={Movies}
+                    cards={cards}
+                    savedMovies={savedMovies}
+                    setSearchedMovies={setSearchedMovies}
+                    searchedMovies={searchedMovies}
+                    isLoading={isLoading}
+                    setIsButtonClicked={setIsButtonClicked}
+                    isButtonClicked={isButtonClicked}
+                    isEmptyPage={isEmptyPage}
+                    setIsEmptyPage={setIsEmptyPage}
+                    handleCreateMovie={handleCreateMovie}
+                    handleCardDelete={handleCardDelete}
+                    countCardsInitialLoad={countCardsInitialLoad}
+                    countCardsAddMore={countCardsAddMore}
+                    pushMore={pushMore}
+                    setPushMore={setPushMore}
+                    isShowedButton={isShowedButton}
+                    setIsShowedButton={setIsShowedButton}
+                    responseMessage={responseMessage}
+                  />
+                )
               }
             />
             <Route
               path="/saved-movies"
               element={
-                <ProtectedRoute
-                  loggedIn={loggedIn}
-                  element={SavedMovies}
-                  cards={cards}
-                  setSearchedMovies={setSearchedMovies}
-                  savedMovies={savedMovies}
-                  searchedMovies={searchedMovies}
-                  isLoading={isLoading}
-                  setIsButtonClicked={setIsButtonClicked}
-                  isButtonClicked={isButtonClicked}
-                  isEmptyPage={isEmptyPage}
-                  setIsEmptyPage={setIsEmptyPage}
-                  handleCardDelete={handleCardDelete}
-                  countCardsInitialLoad={countCardsInitialLoad}
-                  countCardsAddMore={countCardsAddMore}
-                  pushMore={pushMore}
-                  setPushMore={setPushMore}
-                  setIsShowedButton={setIsShowedButton}
-                  responseMessage={responseMessage}
-                />
+                loggedIn && (
+                  <ProtectedRoute
+                    loggedIn={loggedIn}
+                    element={SavedMovies}
+                    cards={cards}
+                    setSearchedMovies={setSearchedMovies}
+                    savedMovies={savedMovies}
+                    searchedMovies={searchedMovies}
+                    isLoading={isLoading}
+                    setIsButtonClicked={setIsButtonClicked}
+                    isButtonClicked={isButtonClicked}
+                    isEmptyPage={isEmptyPage}
+                    setIsEmptyPage={setIsEmptyPage}
+                    handleCardDelete={handleCardDelete}
+                    countCardsInitialLoad={countCardsInitialLoad}
+                    countCardsAddMore={countCardsAddMore}
+                    pushMore={pushMore}
+                    setPushMore={setPushMore}
+                    setIsShowedButton={setIsShowedButton}
+                    responseMessage={responseMessage}
+                  />
+                )
               }
             />
             <Route
