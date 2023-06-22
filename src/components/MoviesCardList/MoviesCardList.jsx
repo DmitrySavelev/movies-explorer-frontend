@@ -1,7 +1,8 @@
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { BASE_MOVIES_API_URL, getTimeFromMins } from "../../utils/config";
 
 function MoviesCardList({
   searchedMovies,
@@ -17,26 +18,53 @@ function MoviesCardList({
 }) {
   let location = useLocation();
 
-  const getTimeFromMins = (mins) => {
-    let hours = Math.trunc(mins / 60);
-    let minutes = mins % 60;
-    return minutes === 0
-      ? hours + "ч "
-      : hours === 0
-      ? minutes + "м"
-      : hours + "ч " + minutes + "м";
-  };
-
   const showTrailer = (trailerLink) => {
     window.open(trailerLink, "_blank");
   };
 
-  const readyArrToRender = searchedMovies.slice(
-    0,
-    countCardsInitialLoad + pushMore
-  );
+  const [readyArrToRender, setReadyArrToRender] = useState([]);
 
   useEffect(() => {
+    const storedArr = JSON.parse(localStorage.getItem("readyArrLocalStorage"));
+    if (storedArr && storedArr.length > 0) {
+      setReadyArrToRender(storedArr);
+    } else {
+      setReadyArrToRender([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (searchedMovies.length > 0) {
+      setReadyArrToRender(
+        searchedMovies.slice(0, countCardsInitialLoad + pushMore)
+      );
+      localStorage.setItem(
+        "readyArrLocalStorage",
+        JSON.stringify(readyArrToRender)
+      );
+    } else {
+      setReadyArrToRender([]);
+      localStorage.setItem("readyArrLocalStorage", JSON.stringify([]));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchedMovies]);
+
+  useEffect(() => {
+    // if (
+    //   isEmptyPage &&
+    //   (isButtonClicked || (isEmptyPage && readyArrToRender.length > 0))
+    // ) {
+    //   setIsEmptyPage(false);
+    // }
+
+    if (isButtonClicked && isEmptyPage) {
+      setIsEmptyPage(false);
+    }
+
+    if (isEmptyPage && readyArrToRender.length > 0) {
+      setIsEmptyPage(false);
+    }
+
     if (
       readyArrToRender.length === searchedMovies.length &&
       readyArrToRender.length !== 0
@@ -44,9 +72,11 @@ function MoviesCardList({
       setIsShowedButton(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [readyArrToRender.length, searchedMovies, isButtonClicked]);
+  }, [searchedMovies, isButtonClicked, readyArrToRender]);
 
   const moviesList = (array) => {
+    // console.log("array >>>", array);
+    // console.log(readyArrToRender);
     return array.map((movie) => (
       <li
         key={location.pathname === "/movies" ? movie.id : movie._id}
@@ -61,7 +91,7 @@ function MoviesCardList({
           duration={getTimeFromMins(movie.duration)}
           src={
             location.pathname === "/movies"
-              ? `https://api.nomoreparties.co${movie.image.url}`
+              ? `${BASE_MOVIES_API_URL}${movie.image.url}`
               : movie.image
           }
           handleCreateMovie={handleCreateMovie}
@@ -71,20 +101,13 @@ function MoviesCardList({
     ));
   };
 
-  useEffect(() => {
-    if (isButtonClicked && isEmptyPage) {
-      setIsEmptyPage(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isButtonClicked]);
-
   return (
     <div className="moviesCardList">
       {isEmptyPage ? (
-        <div className="moviesCardList__wrapper"></div>
+        <div className="moviesCardList__wrapper">EmptyPage</div>
       ) : (
         <>
-          {searchedMovies.length > 0 ? (
+          {searchedMovies.length > 0 && readyArrToRender.length > 0 ? ( // Добавлено условие readyArrToRender.length > 0
             <ul className="movies__list">
               {location.pathname === "/movies"
                 ? moviesList(readyArrToRender)

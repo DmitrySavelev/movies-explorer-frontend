@@ -29,7 +29,6 @@ function Movies({
     <section className="movies">
       <SearchForm
         cards={cards}
-        searchedMovies={searchedMovies}
         setSearchedMovies={setSearchedMovies}
         isButtonClicked={isButtonClicked}
         setIsButtonClicked={setIsButtonClicked}
@@ -37,6 +36,7 @@ function Movies({
         setPushMore={setPushMore}
         setIsShowedButton={setIsShowedButton}
         responseMessage={responseMessage}
+        searchedMovies={searchedMovies}
       />
       {isLoading ? (
         <Preloader />

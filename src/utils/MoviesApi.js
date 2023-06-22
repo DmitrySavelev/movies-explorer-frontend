@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.nomoreparties.co/beatfilm-movies';
+import { BASE_MOVIES_API_URL_FULL } from "../utils/config";
 
 class Api {
 
@@ -10,7 +10,7 @@ class Api {
   }
 
   getInitialCards() {
-    return fetch(BASE_URL, {
+    return fetch(BASE_MOVIES_API_URL_FULL, {
       headers: {
         "content-type": "application/json",
       },
@@ -21,4 +21,4 @@ class Api {
 
 }
 
-export const moviesApi = new Api(BASE_URL);
+export const moviesApi = new Api(BASE_MOVIES_API_URL_FULL);

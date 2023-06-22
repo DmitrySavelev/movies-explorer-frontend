@@ -9,6 +9,7 @@ import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import NotFound from "../NotFound/NotFound";
 import Popup from "../Popup/Popup";
+import UnauthorizedComponent from "../UnauthorizedComponent/UnauthorizedComponent";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
@@ -17,26 +18,33 @@ import { mainApi } from "../../utils/MainApi";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { register, authorize, checkToken } from "../../utils/Auth";
 import ProtectedRoute from "../ProtectedRoute";
-import { messages } from "../../utils/config";
+import {
+  MESSAGES,
+  DEVICE_WIDTH,
+  MOVIE_COUNT,
+  MOVIE_COUNT_MORE,
+} from "../../utils/config";
 
 function App() {
   let location = useLocation();
   const navigate = useNavigate();
 
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState(
+    JSON.parse(localStorage.getItem("FilmsFromMoviesApi")) || []
+  );
   const [savedMovies, setSavedMovies] = useState([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     name: "",
     email: "",
+    _id: "",
   });
-
   const [isLoading, setIsLoading] = useState(false);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [isEmptyPage, setIsEmptyPage] = useState(true);
-  const [countCardsAddMore, setCountCardsAddMore] = useState();
-  const [countCardsInitialLoad, setCountCardsInitialLoad] = useState();
+  const [countCardsAddMore, setCountCardsAddMore] = useState(2);
+  const [countCardsInitialLoad, setCountCardsInitialLoad] = useState(0);
   const [pushMore, setPushMore] = useState(0);
   const [isShowedButton, setIsShowedButton] = useState(false);
   const [responseMessage, setResponseMessage] = useState({});
@@ -53,7 +61,11 @@ function App() {
       mainApi
         .getUserData()
         .then((data) => {
-          setCurrentUser(data);
+          setCurrentUser({
+            name: data.data.name,
+            email: data.data.email,
+            _id: data.data._id,
+          });
         })
         .catch((error) => console.log(error));
     }
@@ -65,18 +77,42 @@ function App() {
       moviesApi
         .getInitialCards()
         .then((data) => {
-          mainApi.getSavedMovies().then((movies) => {
-            setSavedMovies(movies);
-            setCards(data);
-          });
+          localStorage.setItem("FilmsFromMoviesApi", JSON.stringify(data));
+          setCards(data);
         })
         .catch((error) => console.log(error))
         .finally(() => {
           setIsLoading(false);
         });
     }
+    if (isButtonClicked) {
+      mainApi.getSavedMovies().then((movies) => {
+        setSavedMovies(movies);
+      });
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isButtonClicked, savedMovies]);
+  }, [isButtonClicked]);
+
+  // useEffect(() => {
+  //   if (isButtonClicked && cards.length === 0) {
+  //     setIsLoading(true);
+  //     moviesApi
+  //       .getInitialCards()
+  //       .then((data) => {
+  //         mainApi.getSavedMovies().then((movies) => {
+  //           setSavedMovies(movies);
+  //           setCards(data);
+  //           localStorage.setItem("FilmsFromMoviesApi", JSON.stringify(data));
+  //         });
+  //       })
+  //       .catch((error) => console.log(error))
+  //       .finally(() => {
+  //         setIsLoading(false);
+  //       });
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [isButtonClicked, savedMovies]);
 
   function handleClickOpenPopup() {
     setIsPopupOpen(true);
@@ -111,9 +147,9 @@ function App() {
       .catch((err) => {
         console.log(err);
         if (err.status === 409) {
-          setResponseMessage({ error: messages.emailError });
+          setResponseMessage({ error: MESSAGES.EMAIL_ERROR });
         } else {
-          setResponseMessage({ error: messages.registerError });
+          setResponseMessage({ error: MESSAGES.REGISTER_ERROR });
         }
       });
   }
@@ -129,9 +165,9 @@ function App() {
       })
       .catch((err) => {
         if (err.status === 401) {
-          setResponseMessage({ error: messages.loginError });
+          setResponseMessage({ error: MESSAGES.LOGIN_ERROR });
         } else {
-          setResponseMessage({ error: messages.registerError });
+          setResponseMessage({ error: MESSAGES.REGISTER_ERROR });
         }
       });
   }
@@ -140,6 +176,10 @@ function App() {
     setLoggedIn(false);
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("token");
+    localStorage.removeItem("isShortChecked");
+    localStorage.removeItem("name");
+    localStorage.removeItem("FilmsFromMoviesApi");
+    localStorage.removeItem("readyArrLocalStorage");
   }
 
   function handleUpdateUser(userData) {
@@ -147,13 +187,13 @@ function App() {
       .editProfile(userData)
       .then((data) => {
         setCurrentUser({ name: data.name, email: data.email });
-        setResponseMessage({ message: messages.successMessage });
+        setResponseMessage({ message: MESSAGES.SUCCESS_MESSAGE });
       })
       .catch((err) => {
         if (err.status === 409) {
-          setResponseMessage({ error: messages.emailError });
+          setResponseMessage({ error: MESSAGES.EMAIL_ERROR });
         } else {
-          setResponseMessage({ error: messages.editUserInfoError });
+          setResponseMessage({ error: MESSAGES.EDIT_USER_INFO_ERROR });
         }
       });
   }
@@ -202,19 +242,19 @@ function App() {
           );
         }
       })
-      .catch(() => setResponseMessage({ error: messages.cardDeleteError }));
+      .catch(() => setResponseMessage({ error: MESSAGES.CARD_DELETE_ERROR }));
   }
 
   function adaptCountCards() {
-    if (window.innerWidth > 1279) {
-      setCountCardsAddMore(3);
-      setCountCardsInitialLoad(12);
-    } else if (window.innerWidth > 767) {
-      setCountCardsAddMore(2);
-      setCountCardsInitialLoad(8);
+    if (window.innerWidth > DEVICE_WIDTH.DESKTOP) {
+      setCountCardsAddMore(MOVIE_COUNT_MORE.DESKTOP);
+      setCountCardsInitialLoad(MOVIE_COUNT.DESKTOP);
+    } else if (window.innerWidth > DEVICE_WIDTH.TABLET) {
+      setCountCardsAddMore(MOVIE_COUNT_MORE.TABLET);
+      setCountCardsInitialLoad(MOVIE_COUNT.TABLET);
     } else {
-      setCountCardsAddMore(2);
-      setCountCardsInitialLoad(5);
+      setCountCardsAddMore(MOVIE_COUNT_MORE.MOBILE);
+      setCountCardsInitialLoad(MOVIE_COUNT.MOBILE);
     }
   }
 
@@ -232,11 +272,11 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="app">
-        {location.pathname === "/" ? (
+        {!loggedIn && location.pathname === "/" ? (
           <Navigation />
-        ) : location.pathname === "/movies" ||
-          location.pathname === "/saved-movies" ||
-          location.pathname === "/profile" ? (
+        ) : loggedIn &&
+          (location.pathname !== "/signin" ||
+            (loggedIn && location.pathname !== "/signup")) ? (
           <Header onOpen={handleClickOpenPopup} />
         ) : (
           ""
@@ -300,26 +340,41 @@ function App() {
                 )
               }
             />
+
             <Route
               path="/signin"
               element={
-                <Login
-                  reset={reset}
-                  onSignIn={handleLogin}
-                  responseMessage={responseMessage}
+                <UnauthorizedComponent
+                  loggedIn={loggedIn}
+                  component={
+                    <Login
+                      reset={reset}
+                      onSignIn={handleLogin}
+                      responseMessage={responseMessage}
+                    />
+                  }
+                  pathToRedirect="/movies"
                 />
               }
             />
+
             <Route
               path="/signup"
               element={
-                <Register
-                  reset={reset}
-                  onSignUp={handleRegister}
-                  responseMessage={responseMessage}
+                <UnauthorizedComponent
+                  loggedIn={loggedIn}
+                  component={
+                    <Register
+                      reset={reset}
+                      onSignUp={handleRegister}
+                      responseMessage={responseMessage}
+                    />
+                  }
+                  pathToRedirect="/movies"
                 />
               }
             />
+
             <Route
               path="/profile"
               element={

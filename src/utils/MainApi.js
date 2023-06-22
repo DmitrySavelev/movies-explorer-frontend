@@ -1,5 +1,4 @@
-import { BASE_URL } from "./Auth.js";
-// const BASE_URL = 'https://api.nomoreparties.co/beatfilm-movies';
+import { BASE_URL, BASE_MOVIES_API_URL } from "../utils/config";
 
 class Api {
 
@@ -47,9 +46,9 @@ class Api {
         duration: inputValues.duration,
         year: inputValues.year,
         description: inputValues.description,
-        image: `https://api.nomoreparties.co/${inputValues.image.url}`,
+        image: `${BASE_MOVIES_API_URL}/${inputValues.image.url}`,
         trailerLink: inputValues.trailerLink,
-        thumbnail: `https://api.nomoreparties.co/${inputValues.image.url}`,
+        thumbnail: `${BASE_MOVIES_API_URL}/${inputValues.image.url}`,
         movieId: String(inputValues.id),
         nameRU: inputValues.nameRU,
         nameEN: inputValues.nameEN,

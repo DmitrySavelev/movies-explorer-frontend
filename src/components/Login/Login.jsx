@@ -38,6 +38,7 @@ function Login({ reset, onSignIn, responseMessage }) {
             minLength="2"
             maxLength="30"
             id="email"
+            pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
             placeholder="Введите почту"
             onChange={handleChange}
             name="email"

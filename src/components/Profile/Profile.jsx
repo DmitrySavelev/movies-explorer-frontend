@@ -17,8 +17,8 @@ function Profile({ reset, onSignOut, onUpdateUser, responseMessage }) {
   useEffect(() => {
     if (CurrentUser) {
       setValues({
-        name: CurrentUser?.data?.name,
-        email: CurrentUser?.data?.email,
+        name: CurrentUser?.name,
+        email: CurrentUser?.email,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,7 +43,7 @@ function Profile({ reset, onSignOut, onUpdateUser, responseMessage }) {
     <section className="big-wrapper">
       <div className="profile">
         <div className="profile__wrapper">
-          <h1 className="profile__header">Привет, Дмитрий!</h1>
+          <h1 className="profile__header">Привет, {CurrentUser?.name} !</h1>
           <form className="profile__form" onSubmit={handleSubmit}>
             <div className="profile__form_field profile__form_line">
               <span className="profile__span">Имя</span>
@@ -69,6 +69,7 @@ function Profile({ reset, onSignOut, onUpdateUser, responseMessage }) {
                 type="email"
                 id="email"
                 required
+                pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                 value={values.email || ""}
                 onChange={handleChange}
                 name="email"

@@ -48,6 +48,7 @@ function Register({ reset, onSignUp, responseMessage }) {
             maxLength="30"
             id="email"
             value={values.email || ""}
+            pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
             placeholder="Введите почту"
             onChange={handleChange}
             name="email"
