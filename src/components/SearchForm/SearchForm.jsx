@@ -14,29 +14,35 @@ function SearchForm({
   setPushMore,
   setIsShowedButton,
   responseMessage,
-  searchedMovies,
 }) {
   const [isShortChecked, setIsShortChecked] = useState(
     localStorage.getItem("isShortChecked") === "true"
   );
   const { values, isValid, handleChange } = useValidationForm();
   const [inputValue, setInputValue] = useState("");
+  const [inputSaveValue, setInputSaveValue] = useState("");
+  let location = useLocation();
 
   useEffect(() => {
     const storedName = localStorage.getItem("name");
     if (storedName) {
       setInputValue(storedName);
     }
+    localStorage.setItem("nameSave", "");
   }, []);
 
   const handleChangeSearchMovies = (e) => {
     handleChange(e);
-    const value = e.target.value;
-    setInputValue(value);
-    localStorage.setItem("name", value);
+    if (location.pathname === "/movies") {
+      const value = e.target.value;
+      setInputValue(value);
+      localStorage.setItem("name", value);
+    } else {
+      const value = e.target.value;
+      setInputSaveValue(value);
+      localStorage.setItem("nameSave", value);
+    }
   };
-
-  let location = useLocation();
 
   const handleDuration = (movie) => {
     if (!isShortChecked) {
@@ -53,10 +59,6 @@ function SearchForm({
   };
 
   function getFilteredArr(arr, value) {
-    const readyArrLocalStorage = JSON.parse(
-      localStorage.getItem("readyArrLocalStorage")
-    );
-    // const readyArrLocalStorage = localStorage.getItem("readyArrLocalStorage");
     const filteredArr = arr.filter((movie) => {
       return (
         (movie.nameRU.toLowerCase().includes(value) ||
@@ -64,9 +66,9 @@ function SearchForm({
         handleDuration(movie)
       );
     });
-    if (filteredArr.length === 0 && readyArrLocalStorage.length > 0) {
-      localStorage.setItem("readyArrLocalStorage", JSON.stringify([]));
-      setSearchedMovies(readyArrLocalStorage);
+
+    if (filteredArr.length === 0) {
+      setSearchedMovies([]);
     } else {
       setSearchedMovies(filteredArr);
     }
@@ -74,19 +76,22 @@ function SearchForm({
   }
 
   useEffect(() => {
-    if (location.pathname === "/movies") {
-      if (
-        getFilteredArr(cards, values.films).length > 0 ||
-        getFilteredArr(cards, localStorage.getItem("name")).length > 0
-      ) {
-        setIsShowedButton(true);
+    if (cards.length > 0) {
+      if (location.pathname === "/movies") {
+        if (
+          getFilteredArr(cards, values.films).length > 0 ||
+          getFilteredArr(cards, localStorage.getItem("name")).length > 0
+        ) {
+          setIsShowedButton(true);
+        } else {
+          setIsShowedButton(false);
+        }
       } else {
-        setIsShowedButton(false);
+        getFilteredArr(savedMovies, values.films);
       }
-    } else {
-      getFilteredArr(savedMovies, values.films);
+      setIsButtonClicked(false);
     }
-    setIsButtonClicked(false);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards, pushMore, isButtonClicked, savedMovies]);
 
@@ -111,7 +116,9 @@ function SearchForm({
               required
               minLength="1"
               name="films"
-              value={inputValue}
+              value={
+                location.pathname === "/movies" ? inputValue : inputSaveValue
+              }
               placeholder="Фильм"
             ></input>
             <div className="form__button">

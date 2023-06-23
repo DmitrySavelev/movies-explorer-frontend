@@ -21,6 +21,9 @@ function SavedMovies({
   setPushMore,
   setIsShowedButton,
   responseMessage,
+  readyArrToRender,
+  setReadyArrToRender,
+  setSavedMovies,
 }) {
   return (
     <section className="movies">
@@ -34,6 +37,8 @@ function SavedMovies({
         setPushMore={setPushMore}
         setIsShowedButton={setIsShowedButton}
         responseMessage={responseMessage}
+        readyArrToRender={readyArrToRender}
+        setReadyArrToRender={setReadyArrToRender}
       />
       {isLoading ? (
         <Preloader />
@@ -52,6 +57,9 @@ function SavedMovies({
           pushMore={pushMore}
           setPushMore={setPushMore}
           setIsShowedButton={setIsShowedButton}
+          readyArrToRender={readyArrToRender}
+          setReadyArrToRender={setReadyArrToRender}
+          setSavedMovies={setSavedMovies}
         />
       )}
       <div className="empty-div"></div>

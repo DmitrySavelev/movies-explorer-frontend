@@ -24,6 +24,8 @@ function Movies({
   isShowedButton,
   setIsShowedButton,
   responseMessage,
+  readyArrToRender,
+  setReadyArrToRender,
 }) {
   return (
     <section className="movies">
@@ -36,7 +38,7 @@ function Movies({
         setPushMore={setPushMore}
         setIsShowedButton={setIsShowedButton}
         responseMessage={responseMessage}
-        searchedMovies={searchedMovies}
+        setReadyArrToRender={setReadyArrToRender}
       />
       {isLoading ? (
         <Preloader />
@@ -52,6 +54,8 @@ function Movies({
           countCardsInitialLoad={countCardsInitialLoad}
           pushMore={pushMore}
           setIsShowedButton={setIsShowedButton}
+          readyArrToRender={readyArrToRender}
+          setReadyArrToRender={setReadyArrToRender}
         />
       )}
       {isShowedButton && (

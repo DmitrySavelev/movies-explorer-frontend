@@ -14,6 +14,7 @@ function MoviesCard({
 }) {
   const CurrentUser = useContext(CurrentUserContext);
   let location = useLocation();
+
   const isLiked = savedMovies.some((m) => {
     return m.owner === CurrentUser._id && m.movieId === movie.id;
   });

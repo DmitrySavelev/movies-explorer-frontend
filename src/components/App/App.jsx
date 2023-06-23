@@ -42,7 +42,7 @@ function App() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
-  const [isEmptyPage, setIsEmptyPage] = useState(true);
+  const [isEmptyPage, setIsEmptyPage] = useState(false);
   const [countCardsAddMore, setCountCardsAddMore] = useState(2);
   const [countCardsInitialLoad, setCountCardsInitialLoad] = useState(0);
   const [pushMore, setPushMore] = useState(0);
@@ -51,12 +51,21 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(
     localStorage.getItem("loggedIn") === "true"
   );
+  const [readyArrToRender, setReadyArrToRender] = useState([]);
+
+  // useEffect(() => {
+  //   localStorage.setItem("loggedIn", loggedIn);
+  //   if (loggedIn && cards.length === 0) {
+  //     setIsEmptyPage(true);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [loggedIn]);
 
   useEffect(() => {
     localStorage.setItem("loggedIn", loggedIn);
-  }, [loggedIn]);
-
-  useEffect(() => {
+    if (loggedIn && cards.length === 0) {
+      setIsEmptyPage(true);
+    }
     if (loggedIn) {
       mainApi
         .getUserData()
@@ -69,7 +78,17 @@ function App() {
         })
         .catch((error) => console.log(error));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loggedIn]);
+
+  useEffect(() => {
+    if (loggedIn) {
+      mainApi.getSavedMovies().then((movies) => {
+        setSavedMovies(movies);
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (isButtonClicked && cards.length === 0) {
@@ -94,26 +113,6 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isButtonClicked]);
 
-  // useEffect(() => {
-  //   if (isButtonClicked && cards.length === 0) {
-  //     setIsLoading(true);
-  //     moviesApi
-  //       .getInitialCards()
-  //       .then((data) => {
-  //         mainApi.getSavedMovies().then((movies) => {
-  //           setSavedMovies(movies);
-  //           setCards(data);
-  //           localStorage.setItem("FilmsFromMoviesApi", JSON.stringify(data));
-  //         });
-  //       })
-  //       .catch((error) => console.log(error))
-  //       .finally(() => {
-  //         setIsLoading(false);
-  //       });
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [isButtonClicked, savedMovies]);
-
   function handleClickOpenPopup() {
     setIsPopupOpen(true);
   }
@@ -136,6 +135,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", onResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handleRegister({ name, email, password }) {
@@ -145,7 +145,6 @@ function App() {
         setResponseMessage({});
       })
       .catch((err) => {
-        console.log(err);
         if (err.status === 409) {
           setResponseMessage({ error: MESSAGES.EMAIL_ERROR });
         } else {
@@ -174,12 +173,14 @@ function App() {
 
   function handleSignOut() {
     setLoggedIn(false);
+    setIsShowedButton(false);
+    setCards([]);
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("token");
     localStorage.removeItem("isShortChecked");
     localStorage.removeItem("name");
     localStorage.removeItem("FilmsFromMoviesApi");
-    localStorage.removeItem("readyArrLocalStorage");
+    localStorage.removeItem("nameSave");
   }
 
   function handleUpdateUser(userData) {
@@ -309,6 +310,8 @@ function App() {
                     isShowedButton={isShowedButton}
                     setIsShowedButton={setIsShowedButton}
                     responseMessage={responseMessage}
+                    readyArrToRender={readyArrToRender}
+                    setReadyArrToRender={setReadyArrToRender}
                   />
                 )
               }
@@ -336,6 +339,9 @@ function App() {
                     setPushMore={setPushMore}
                     setIsShowedButton={setIsShowedButton}
                     responseMessage={responseMessage}
+                    readyArrToRender={readyArrToRender}
+                    setReadyArrToRender={setReadyArrToRender}
+                    setSavedMovies={setSavedMovies}
                   />
                 )
               }

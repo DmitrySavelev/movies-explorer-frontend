@@ -15,56 +15,29 @@ function MoviesCardList({
   countCardsInitialLoad,
   pushMore,
   setIsShowedButton,
+  readyArrToRender,
+  setReadyArrToRender,
 }) {
+  const [moviesToRender, setMoviesToRender] = useState([]);
   let location = useLocation();
 
   const showTrailer = (trailerLink) => {
     window.open(trailerLink, "_blank");
   };
 
-  const [readyArrToRender, setReadyArrToRender] = useState([]);
-
-  useEffect(() => {
-    const storedArr = JSON.parse(localStorage.getItem("readyArrLocalStorage"));
-    if (storedArr && storedArr.length > 0) {
-      setReadyArrToRender(storedArr);
-    } else {
-      setReadyArrToRender([]);
-    }
-  }, []);
-
   useEffect(() => {
     if (searchedMovies.length > 0) {
       setReadyArrToRender(
         searchedMovies.slice(0, countCardsInitialLoad + pushMore)
       );
-      localStorage.setItem(
-        "readyArrLocalStorage",
-        JSON.stringify(readyArrToRender)
-      );
-    } else {
-      setReadyArrToRender([]);
-      localStorage.setItem("readyArrLocalStorage", JSON.stringify([]));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchedMovies]);
 
   useEffect(() => {
-    // if (
-    //   isEmptyPage &&
-    //   (isButtonClicked || (isEmptyPage && readyArrToRender.length > 0))
-    // ) {
-    //   setIsEmptyPage(false);
-    // }
-
-    if (isButtonClicked && isEmptyPage) {
+    if (isEmptyPage && isButtonClicked) {
       setIsEmptyPage(false);
     }
-
-    if (isEmptyPage && readyArrToRender.length > 0) {
-      setIsEmptyPage(false);
-    }
-
     if (
       readyArrToRender.length === searchedMovies.length &&
       readyArrToRender.length !== 0
@@ -75,11 +48,9 @@ function MoviesCardList({
   }, [searchedMovies, isButtonClicked, readyArrToRender]);
 
   const moviesList = (array) => {
-    // console.log("array >>>", array);
-    // console.log(readyArrToRender);
-    return array.map((movie) => (
+    return array.map((movie, index) => (
       <li
-        key={location.pathname === "/movies" ? movie.id : movie._id}
+        key={location.pathname === "/movies" ? index : movie._id}
         onClick={() => {
           showTrailer(movie.trailerLink);
         }}
@@ -101,18 +72,31 @@ function MoviesCardList({
     ));
   };
 
+  useEffect(() => {
+    if (location.pathname === "/saved-movies") {
+      if (
+        searchedMovies.length === 0 &&
+        localStorage.getItem("nameSave").length === 0
+      ) {
+        setMoviesToRender(savedMovies);
+      } else if (searchedMovies.length === 0) {
+        setMoviesToRender([]);
+      } else if (searchedMovies.length > 0) {
+        setMoviesToRender(searchedMovies);
+      }
+    }
+  }, [location.pathname, savedMovies, searchedMovies]);
+
   return (
     <div className="moviesCardList">
       {isEmptyPage ? (
-        <div className="moviesCardList__wrapper">EmptyPage</div>
+        <div className="moviesCardList__wrapper"></div>
       ) : (
         <>
-          {searchedMovies.length > 0 && readyArrToRender.length > 0 ? ( // Добавлено условие readyArrToRender.length > 0
-            <ul className="movies__list">
-              {location.pathname === "/movies"
-                ? moviesList(readyArrToRender)
-                : moviesList(searchedMovies)}
-            </ul>
+          {location.pathname === "/movies" && searchedMovies.length > 0 ? (
+            <ul className="movies__list">{moviesList(readyArrToRender)}</ul>
+          ) : moviesToRender.length > 0 ? (
+            <ul className="movies__list">{moviesList(moviesToRender)}</ul>
           ) : (
             <div className="moviesCardList__wrapper">
               <span>Ничего не найдено</span>
