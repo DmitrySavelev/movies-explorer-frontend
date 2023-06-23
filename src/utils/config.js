@@ -32,8 +32,8 @@ export const SHORT_MOVIE_LENGTH = 40
 export const BASE_MOVIES_API_URL = 'https://api.nomoreparties.co'
 export const BASE_MOVIES_API_URL_FULL = 'https://api.nomoreparties.co/beatfilm-movies';
 
-export const BASE_URL = "http://localhost:3001/";
-// export const BASE_URL = "https://api.movies.savelev.nomoredomains.monster/";
+// export const BASE_URL = "http://localhost:3001/";
+export const BASE_URL = "https://api.movies.savelev.nomoredomains.monster/";
 
 export const getTimeFromMins = (mins) => {
   let hours = Math.trunc(mins / 60);
