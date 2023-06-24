@@ -60,11 +60,15 @@ function SearchForm({
 
   function getFilteredArr(arr, value) {
     const filteredArr = arr.filter((movie) => {
-      return (
-        (movie.nameRU.toLowerCase().includes(value?.toLowerCase()) ||
-          movie.nameEN.toLowerCase().includes(value?.toLowerCase())) &&
-        handleDuration(movie)
-      );
+      if (value) {
+        return (
+          (movie.nameRU.toLowerCase().includes(value.toLowerCase()) ||
+            movie.nameEN.toLowerCase().includes(value.toLowerCase())) &&
+          handleDuration(movie)
+        );
+      } else {
+        return handleDuration(movie);
+      }
     });
 
     if (filteredArr.length === 0) {
@@ -91,7 +95,6 @@ function SearchForm({
       }
       setIsButtonClicked(false);
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards, pushMore, isButtonClicked, savedMovies, isShortChecked]);
 
