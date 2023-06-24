@@ -61,8 +61,8 @@ function SearchForm({
   function getFilteredArr(arr, value) {
     const filteredArr = arr.filter((movie) => {
       return (
-        (movie.nameRU.toLowerCase().includes(value) ||
-          movie.nameEN.toLowerCase().includes(value)) &&
+        (movie.nameRU.toLowerCase().includes(value?.toLowerCase()) ||
+          movie.nameEN.toLowerCase().includes(value?.toLowerCase())) &&
         handleDuration(movie)
       );
     });
@@ -93,7 +93,7 @@ function SearchForm({
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cards, pushMore, isButtonClicked, savedMovies]);
+  }, [cards, pushMore, isButtonClicked, savedMovies, isShortChecked]);
 
   useEffect(() => {
     localStorage.setItem("isShortChecked", isShortChecked);
@@ -145,9 +145,6 @@ function SearchForm({
           </label>
         </div>
       </div>
-      <span className="searchForm__form_error">
-        {isValid || "Нужно ввести ключевое слово"}
-      </span>
       <span className={`searchForm__response-error`}>
         {responseMessage.error}
       </span>

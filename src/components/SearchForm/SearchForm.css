@@ -26,15 +26,6 @@
   text-align: center;
 }
 
-.searchForm__form_error {
-  color: #ee3465;
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 18px;
-  text-align: center;
-}
-
 .searchForm__find-left {
   background-image: url(../../../public/images/find_left.svg);
   width: 19px;
