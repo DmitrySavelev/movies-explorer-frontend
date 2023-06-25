@@ -63,6 +63,11 @@
     transition: opacity 0.3s ease;
   }
 
+  .popup__span_active {
+    padding-bottom: 7px;
+    border-bottom: 3px solid #000;
+  }
+
   .popup__span:hover {
     opacity: 0.5;
   }

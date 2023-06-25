@@ -78,7 +78,7 @@ function MoviesCardList({
         searchedMovies.length === 0 &&
         localStorage.getItem("nameSave").length === 0
       ) {
-        setMoviesToRender(savedMovies);
+        setMoviesToRender([]);
       } else if (searchedMovies.length === 0) {
         setMoviesToRender([]);
       } else if (searchedMovies.length > 0) {

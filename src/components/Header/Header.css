@@ -46,13 +46,8 @@
   opacity: 0.5;
 }
 
-.header__button_film {
-  font-weight: 500;
-}
-
-.header__button_saved-film {
-  font-weight: 400;
-  margin-right: 48px;
+.header__button_active {
+  font-weight: 600;
 }
 
 .header__button_account {

@@ -53,14 +53,6 @@ function App() {
   );
   const [readyArrToRender, setReadyArrToRender] = useState([]);
 
-  // useEffect(() => {
-  //   localStorage.setItem("loggedIn", loggedIn);
-  //   if (loggedIn && cards.length === 0) {
-  //     setIsEmptyPage(true);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [loggedIn]);
-
   useEffect(() => {
     localStorage.setItem("loggedIn", loggedIn);
     if (loggedIn && cards.length === 0) {

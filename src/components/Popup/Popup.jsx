@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Popup.css";
 
 const Popup = ({ isOpen, onClose, setSearchedMovies }) => {
+  let location = useLocation();
+
   function handleClickClose() {
     onClose();
     setSearchedMovies([]);
@@ -16,17 +18,39 @@ const Popup = ({ isOpen, onClose, setSearchedMovies }) => {
           onClick={onClose}
         ></button>
         <div className="popup__wrapper">
-          <Link to="/" className="popup__span" onClick={handleClickClose}>
+          <Link
+            to="/"
+            onClick={handleClickClose}
+            className={`popup__span ${
+              location.pathname === "/" ? "popup__span_active" : ""
+            }`}
+          >
             Главная
           </Link>
-          <Link to="/movies" className="popup__span" onClick={handleClickClose}>
+          <Link
+            to="/movies"
+            onClick={handleClickClose}
+            className={`popup__span ${
+              location.pathname === "/movies" ? "popup__span_active" : ""
+            }`}
+          >
             Фильмы
           </Link>
-          <Link to="/saved-movies" className="popup__span" onClick={handleClickClose}>
+          <Link
+            to="/saved-movies"
+            onClick={handleClickClose}
+            className={`popup__span ${
+              location.pathname === "/saved-movies" ? "popup__span_active" : ""
+            }`}
+          >
             Сохранённые фильмы
           </Link>
         </div>
-        <Link to="/profile" className="popup__account" onClick={handleClickClose}>
+        <Link
+          to="/profile"
+          className="popup__account"
+          onClick={handleClickClose}
+        >
           Аккаунт
         </Link>
       </section>

@@ -70,7 +70,6 @@ function SearchForm({
         return handleDuration(movie);
       }
     });
-
     if (filteredArr.length === 0) {
       setSearchedMovies([]);
     } else {
@@ -83,7 +82,7 @@ function SearchForm({
     if (cards.length > 0) {
       if (location.pathname === "/movies") {
         if (
-          getFilteredArr(cards, values.films).length > 0 ||
+          // getFilteredArr(cards, values.films).length > 0 ||
           getFilteredArr(cards, localStorage.getItem("name")).length > 0
         ) {
           setIsShowedButton(true);
